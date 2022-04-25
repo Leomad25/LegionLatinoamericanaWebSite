@@ -1,0 +1,141 @@
+main {
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .2);
+    text-align: center;
+    width: 100%;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    max-width: 600px;
+    border-radius: 25px;
+    margin: 1em 0;
+    box-shadow: .5em .5em 1.5em black;
+    border: .2em solid gold;
+}
+
+    .card h1 {
+        font-size: 3em;
+        font-style: italic;
+        color: gold;
+        text-shadow: 0.2em 0.2em 0.4em black;
+    }
+
+    .card img {
+        height: 180px;
+        margin-bottom: .5em;
+        margin-top: .5em;
+    }
+
+    .card form {
+        display: inline-block;
+        background-color: rgba(0, 0, 0, .4);
+        width: 90%;
+        border-radius: 25px;
+        max-width: 500px;
+        padding: 1em 0;
+        margin-bottom: .5em;
+    }
+
+        .card form input {
+            width: 90%;
+            font-size: 1.1em;
+            text-align: center;
+            margin-top: .2em;
+            margin-bottom: .2em;
+            border-radius: 15px;
+            border: 2px solid rgba(0, 0, 0, .2);
+            padding: 0 1em;
+            cursor: text;
+        }
+
+        .card form p {
+            color: white;
+            font-size: .9em;
+            padding: .5em;
+            font-style: italic;
+        }
+
+    .card .reason,
+    .card .discovered {
+        display: inline-block;
+        border-radius: 25px;
+        border: 2px solid gold;
+        width: 90%;
+        margin-top: 1em;
+        padding-bottom: .5em;
+    }
+
+        .card .reason p,
+        .card .discovered p {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .card .reason textarea,
+        .card .discovered textarea {
+            resize: none;
+            font-size: 1.1em;
+            width: 90%;
+            height: 8em;
+            color: black;
+            padding: .5em;
+            text-align: center;
+            cursor: text;
+            border-radius: 15px;
+        }
+
+            .card .reason textarea::-webkit-scrollbar,
+            .card .discovered textarea::-webkit-scrollbar {
+                position: absolute;
+                width: 15px;
+                background: gray;
+                border-radius: 10px;
+            }
+
+            .card .reason textarea::-webkit-scrollbar-thumb,
+            .card .discovered textarea::-webkit-scrollbar-thumb {
+                background: black;
+                border-radius: 10px;
+            }
+
+        .card .discovered select {
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+            cursor: pointer;
+            padding: 7px 10px;
+            border: 2px solid gold;
+            border-radius: 0;
+            background: rgba(255, 255, 255, .5);
+            color: black;
+            font-size: 1em;
+            border:2px solid rgba(0,0,0,.2);
+            border-radius: 25px;
+            margin: 1em 0;
+        }
+
+    .card button {
+        margin-top: 1em;
+        padding: .5em 0;
+        width: 80%;
+        border-radius: 25px;
+        color: gold;
+        font-size: 1.4em;
+        font-style: italic;
+        background-color: black;
+        box-shadow: .5em .5em 1em black;
+        border: 2px solid gold;
+        cursor: pointer;
+    }
+
+    .card a {
+        color: gold;
+        font-size: 1.2em;
+        cursor: pointer;
+        font-weight: bold;
+        font-style: oblique;
+    }
+    

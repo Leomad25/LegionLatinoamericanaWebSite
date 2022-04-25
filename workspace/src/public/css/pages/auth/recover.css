@@ -1,0 +1,81 @@
+main {
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: rgba(255, 255, 255, .4);
+    border: .2em solid gold;
+    border-radius: 25px;
+    text-align: center;
+    padding-bottom: .5em;
+    box-shadow: .5em .5em 1.5em black;
+    max-width: 450px;
+}
+
+    .card h1 {
+        font-size: 3em;
+        font-style: italic;
+        color: gold;
+        text-shadow: 0.2em 0.2em 0.4em black;
+    }
+
+    .card img {
+        height: 180px;
+        margin-bottom: .5em;
+        margin-top: .5em;
+    }
+
+    .card form {
+        display: inline-block;
+        background-color: rgba(0, 0, 0, .4);
+        width: 90%;
+        border-radius: 25px;
+        max-width: 500px;
+        padding: 1em 0;
+        margin-bottom: .5em;
+        position: relative;
+    }
+
+        .card form h2 {
+            font-size: 1.4em;
+            font-style: italic;
+            color: gold;
+            text-shadow: 0.2em 0.2em 0.4em black;
+        }
+
+        .card form input {
+            width: 80%;
+            font-size: 1.1em;
+            text-align: center;
+            margin-top: .2em;
+            margin-bottom: .2em;
+            border-radius: 15px;
+            border: 2px solid rgba(0, 0, 0, .2);
+            padding: 0 1em;
+            cursor: text;
+            margin: 1em 0;
+        }
+
+        .card form button {
+            padding: .5em 0;
+            width: 80%;
+            border-radius: 25px;
+            color: gold;
+            font-size: 1.4em;
+            font-style: italic;
+            background-color: black;
+            box-shadow: .5em .5em 1em black;
+            border: 2px solid gold;
+            cursor: pointer;
+        }
+
+    .card a {
+        color: gold;
+        font-size: 1.2em;
+        cursor: pointer;
+        font-weight: bold;
+        font-style: oblique;
+    }

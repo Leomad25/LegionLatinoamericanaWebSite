@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/css/partials/header.css" type="text/css">
+<header id="header1">
+    <table class="user-welcome">
+        <tr>
+            {{#if user}}
+            <td><p>{{strings.header.welcome}}, <a href="/profile"><span style="text-transform: capitalize;">{{pageConf.rank}}.</span> <span style="text-transform: capitalize;">{{user.username}}</span></a></p></td>
+            <td class="btn-logout"><a href="/auth/logout"><span>{{strings.header.logout}}</span><img src="/image/icons/gold/exit.png"></a></td>
+            {{else}}
+            <td><p>{{strings.header.youAreNotLogged}}</p></td>
+            {{/if}}
+        </tr>
+    </table>
+    <table class="title">
+        <tr>
+            <td><img src="/image/logo.png"></td>
+            <td><h1>{{strings.header.legionLatinoamericana}}</h1></td>
+            <td><img src="/image/logo.png"></td>
+        </tr>
+    </table>
+    <nav>
+        <table>
+            <tr class="icons">
+                <td id="item-icons-1"><img src="/image/icons/gold/home.png"></td>
+                <td id="item-icons-2"><img src="/image/icons/gold/question.png"></td>
+                <td id="item-icons-3"><img src="/image/icons/gold/calendar.png"></td>
+                <td id="item-icons-4"><img src="/image/icons/gold/share.png"></td>
+                {{#if user}}
+                <td id="item-icons-5"><img src="/image/icons/gold/display.png"></td>
+                {{else}}
+                <td id="item-icons-5"><img src="/image/icons/gold/user.png"></td>
+                {{/if}}
+            </tr>
+            <tr class="labels">
+                <td id="item-label-1"><p>{{strings.header.home}}</p></td>
+                <td id="item-label-2"><p>{{strings.header.aboutUs}}</p></td>
+                <td id="item-label-3"><p>{{strings.header.schedule}}</p></td>
+                <td id="item-label-4"><p>{{strings.header.socialNetworks}}</p></td>
+                {{#if user}}
+                <td id="item-label-5"><p class="panel-btn">{{strings.header.panel}}</p></td>
+                {{else}}
+                <td id="item-label-5"><p class="login-btn">{{strings.header.login}}</p></td>
+                {{/if}}
+            </tr>
+        </table>
+    </nav>
+</header>

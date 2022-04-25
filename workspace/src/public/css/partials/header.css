@@ -1,0 +1,107 @@
+#header1 {
+    transition: all .5s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(20, 20, 20, .5);
+    width: 100%;
+    transform: translateY(-85%);
+}
+
+#header1:hover {
+    background-color: black;
+    transform: translateY(0%);
+}
+
+    #header1 .title {
+        padding-bottom: .2em;
+        border-bottom: 3px double gold;
+        text-align: center;
+    }
+
+        #header1 .title h1 {
+            color: gold;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        #header1 .title img {
+            width: 60px;
+            height: 60px;
+            
+        }
+
+    #header1 table {
+        width: 100%;
+        color: gold;
+    }
+
+    #header1 .user-welcome {
+        padding-bottom: 10px;
+        border-bottom: 3px double gold;
+        margin-top: .2em;
+        margin-bottom: .2em;
+    }
+
+        #header1 .user-welcome .btn-logout {
+            text-align: right;
+            position: relative;
+        }
+
+        #header1 .user-welcome a {
+            text-decoration: none;
+            margin-right: 1em;
+            padding-right: 2em;
+        }
+
+        #header1 .user-welcome p {
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        #header1 .user-welcome span {
+            color: gold;
+            font-size: 1.2em;
+            font-style: italic;
+            cursor: pointer;
+        }
+
+        #header1 .user-welcome img {
+            height: 1em;
+            position: absolute;
+            right: 1.2em;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+    #header1 nav table {
+        margin-top: .8em;
+        text-align: center;
+    }
+
+        #header1 nav table .icons td {
+            padding-bottom: .8em;
+        }
+
+            #header1 nav table .icons td img {
+                height: 50px;
+                width: 50px;
+            }
+
+        #header1 nav table .labels td {
+            height: 2em;
+            width: 20%;
+            transition: all .5s;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+            #header1 nav table .labels td:hover {
+                background-color: rgba(255, 255, 255, .4);
+            }
+
+            #header1 nav table .labels td p {
+                cursor: pointer;
+            }

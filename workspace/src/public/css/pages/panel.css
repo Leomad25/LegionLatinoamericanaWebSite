@@ -1,0 +1,42 @@
+main {
+    width: 100vw;
+    padding-bottom: 0;
+    position: relative;
+    z-index: 0;
+}
+
+    main .top {
+        top: 0;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        height: 94px;
+        background-color: black;
+        z-index: 3;
+        color: white;
+        border-bottom: 6px double gold;
+        display: flex;
+        align-items: center;
+    }
+
+        main .top h1 {
+            font-size: 2.5em;
+            font-style: italic;
+            margin-left: .5em;
+        }
+
+    main .content {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        background-color: rgba(0, 0, 255, .0);
+        z-index: 1;
+        padding-top: 100px;
+        padding-left: 0;
+        transition: all .5s;
+    }
+
+    main .content .inside {
+        padding: 1em;
+    }
+

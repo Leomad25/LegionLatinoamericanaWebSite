@@ -1,0 +1,17 @@
+<section class="card">
+    <form action="/auth/login" method="post">
+        <h1>{{strings.legionLatinoamericana}}</h1>
+        <img src="/image/logo.png">
+        <br>
+        <input type="text" name="username" placeholder="{{strings.username}}">
+        <br>
+        <input type="password" name="password" placeholder="{{strings.password}}">
+        <br>
+        <button type="submit">{{strings.login}}</button>
+    </form>
+    <a href="/auth/register">{{strings.register}}</a>
+    <br>
+    <a href="/auth/recover">{{strings.recover}}</a>
+    <br>
+    <a href="/">{{strings.home}}</a>
+</section>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Legion Latinoamericana</title>
+        <link rel="stylesheet" href="/css/master.css" type="text/css">
+        <link rel="stylesheet" href="{{{stylesheet}}}" type="text/css">
+    </head>
+    <body id="body">
+        {{>flash}}
+        {{#if pageConf.header}}{{>header}}{{/if}}
+        <main style="z-index: 0;">
+            {{{ body }}}
+        </main>
+        <footer id="footer">
+            <section class="btns">
+                {{#unless user}}<img src="/image/icons/white/cog.png" onclick="window.location.href ='/conf'">{{/unless}}
+                <img src="/image/icons/white/terminal.png" onclick="window.location.href ='/credits'">
+            </section>
+            <p>This web is below GPL 3.0 license</p>
+            <script src="/js/main.js"></script>
+            {{#if socket}}<script src="/socket.io/socket.io.js" charset="utf-8"></script>{{/if}}
+            {{#if script}}<script src="{{{script}}}"></script>{{/if}}
+        </footer>
+    </body>
+</html>

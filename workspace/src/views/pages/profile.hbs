@@ -1,0 +1,98 @@
+<section class="back-buttons">
+    <button onclick="window.location.href ='/'">{{strings.backToHome}}</button>
+    <button onclick="window.location.href ='/panel'">{{strings.backToPanel}}</button>
+</section>
+<section class="content">
+    <table class="title">
+        <tr>
+            <td class="logo"><img src="/image/logo.png"></td>
+            <td class="label"><h1>{{strings.profile}}</h1></td>
+            <td class="logo"><img src="/image/logo.png"></td>
+        </tr>
+    </table>
+    <article class="user-info">
+        <h2>{{strings.userInfo}}</h2>
+        <ul>
+            <li><span class="label">{{strings.userName}}</span> <span class="info">{{user.username}}</span></li>
+            <li><span class="label">{{strings.email}}</span> <span class="info">{{user.email}}</span></li>
+            <li><span class="label">{{strings.language}}</span> <span class="info">{{user.lang}}</span></li>
+            <li><span class="label">{{strings.permission}}</span>
+                <span class="info">
+                    {{#if pageConf.permissionLevel.none}}{{strings.permissionLevel.none}}{{/if}}
+                    {{#if pageConf.permissionLevel.squad}}{{strings.permissionLevel.squad}}{{/if}}
+                    {{#if pageConf.permissionLevel.allSquads}}{{strings.permissionLevel.allSquads}}{{/if}}
+                    {{#if pageConf.permissionLevel.squadsAndUsers}}{{strings.permissionLevel.squadsAndUsers}}{{/if}}
+                    {{#if pageConf.permissionLevel.squadsUsersAndPermissions}}{{strings.permissionLevel.squadsUsersAndPermissions}}{{/if}}
+                    {{#if pageConf.permissionLevel.allClan}}{{strings.permissionLevel.allClan}}{{/if}}
+                    {{#if pageConf.permissionLevel.developer}}{{strings.permissionLevel.developer}}{{/if}}
+                </span>
+            </li>
+            <li><span class="label">{{strings.missionsAttendance}}</span> <span class="info">{{pageConf.attendance.missions}}</span></li>
+            <li><span class="label">{{strings.trainingsAttendance}}</span> <span class="info">{{pageConf.attendance.trainings}}</span></li>
+        </ul>
+    </article>
+    <article class="role-info">
+        <h2>{{strings.roleInfo}}</h2>
+        <ul>
+            <li><span class="label">{{strings.rank}}</span> <span class="info">{{pageConf.roleInfo.rank}}</span></li>
+            <li><span class="label">{{strings.squad}}</span> <span class="info">{{pageConf.roleInfo.squad}}</span></li>
+            <li><span class="label">{{strings.leader}}</span> <samp class="info">{{pageConf.roleInfo.leader}}</span></li>
+            <li><span class="label">{{strings.defaultRole}}</span> <span class="info">{{pageConf.roleInfo.role}}</span></li>
+            <li><span class="label">{{strings.status}}</span> <span class="info">{{pageConf.roleInfo.status}}</span></li>
+        </ul>
+        <section class="approvedCourses">
+            <h2>{{strings.approvedCourses}}</h2>
+            {{#if pageConf.approvedCourses}}
+            <ul>
+                {{#each pageConf.approvedCourses}}
+                <li><span class="info">{{name}}</span></li>
+                {{/each}}
+            </ul>
+            {{else}}
+            <p>You do not have approved courses</p>
+            {{/if}}
+        </section>
+    </article>
+    <article class="edit-profile">
+        <form action="/profile/email" method="post">
+            <h2>{{strings.forms.0.title}}</h2>
+            <p>{{strings.forms.0.label}}</p>
+            <input type="email" name="email" placeholder="{{strings.forms.0.input}}" required><br>
+            <input type="password" name="currentPassword" placeholder="{{strings.currentPassword}}" required><br>
+            <button type="submit">{{strings.forms.0.btn}}</button>
+        </form>
+        <form action="/profile/password" method="post">
+            <h2>{{strings.forms.1.title}}</h2>
+            <p>{{strings.forms.1.label}}</p>
+            <input type="password" name="password" placeholder="{{strings.forms.1.input}}" required><br>
+            <input type="password" name="currentPassword" placeholder="{{strings.currentPassword}}" required><br>
+            <button type="submit">{{strings.forms.1.btn}}</button>
+        </form>
+        <form action="/profile/lang" method="post">
+            <h2>{{strings.forms.2.title}}</h2>
+            <p>{{strings.forms.2.label}}</p>
+            <select name="lang">
+                {{#each strings.forms.2.input}}
+                <option value="{{value}}">{{tag}}</option>
+                {{/each}}
+            </select><br>
+            <input type="password" name="currentPassword" placeholder="{{strings.currentPassword}}" required><br>
+            <button type="submit">{{strings.forms.2.btn}}</button>
+        </form>
+        <form action="/profile/role" method="post">
+            <h2>{{strings.forms.3.title}}</h2>
+            <p>{{strings.forms.3.label}}</p>
+            <select name="role">
+                {{#if pageConf.approvedCourses}}
+                    {{#each pageConf.approvedCourses}} 
+                    <option value="{{idrole}}">{{name}}</option>
+                    {{/each}}
+                {{else}}
+                    <option value="none">- You do not apply -</option>
+                {{/if}}
+            </select><br>
+            <input type="password" name="currentPassword" placeholder="{{strings.currentPassword}}" required><br>
+            <button type="submit">{{strings.forms.3.btn}}</button>
+        </form>
+    </article>
+</section>

@@ -1,0 +1,16 @@
+<section class="btns">
+    <button onclick="window.location.href ='/'">{{strings.backToHome}}</button>
+    {{#if user}}<button onclick="window.location.href ='/panel'">{{strings.backToPanel}}</button>{{/if}}
+</section>
+<h1>{{strings.configurations}}</h1>
+<article class="langSelector">
+    <h2>{{strings.languageSelector.title}}</h2>
+    <form action="/conf/lang" method="post">
+        <select name="lang">
+            <option value="en">{{strings.languageSelector.language.en}}</option>
+            <option value="es">{{strings.languageSelector.language.es}}</option>
+        </select>
+        <br>
+        <button type="submit">{{strings.languageSelector.changeLanguage}}</button>
+    </form>
+</article>

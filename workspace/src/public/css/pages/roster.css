@@ -1,0 +1,27 @@
+main {
+    text-align: center;
+}
+
+    main .btns {
+        width: 100%;
+        border-bottom: 3px double gold;
+        padding-top: .5em;
+        padding-bottom: 1em;
+    }
+
+        main .btns button {
+            padding: .5em 1em;
+            background-color: black;
+            border-radius: 25px;
+            border: 2px solid gold;
+            box-shadow: .5em .5em 1em black;
+            margin-right: .5em;
+            margin-left: .5em;
+            font-size: 1.2em;
+            color: gold;
+            cursor: pointer;
+        }
+
+    main .content {
+
+    }

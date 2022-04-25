@@ -1,0 +1,69 @@
+<section class="card">
+    <h1>{{strings.legionLatinoamericana}}</h1>
+    <img src="/image/logo.png">
+    <form action="/auth/register" method="post">
+        <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="{{strings.username}}"
+            {{#if preload.username}}
+            value="{{preload.username}}"
+            {{#if preload.error.username}}class="input-error"{{/if}}
+            {{/if}}
+        required>
+        <br>
+        <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="{{strings.password}}"
+            {{#if preload.error.password}}
+            class="input-error"
+            {{/if}}
+        required>
+        <br>
+        <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            placeholder="{{strings.confirmPassword}}"
+            {{#if preload.error.password}}class="input-error"{{/if}}
+        required>
+        <br>
+        <input type="email"
+            name="email"
+            id="email"
+            placeholder="{{strings.email}}"
+            {{#if preload.email}}value="{{preload.email}}"{{/if}}
+        required>
+        <p>{{strings.emailUse}}</p>
+        <section class="reason">
+            <p>{{strings.reason}}</p>
+            {{#if preload.reason}}
+            <textarea name="reason" id="reason">{{preload.reason}}</textarea>
+            {{else}}
+            <textarea name="reason" id="reason"></textarea>
+            {{/if}}
+        </section>
+        <section class="discovered">
+            <p>{{strings.discovered}}</p>
+            <select name="discovered" id="discovered">
+                <option value="none">{{strings.noneOption}}</option>
+                {{#each discoveredItems}}
+                <option value="{{id}}">{{tag}}</option>
+                {{/each}}
+                <option value="other">{{strings.otherOption}}</option>
+            </select>
+            <section class="tellUs" id="tellUs" style="display: none;">
+                <p>{{strings.tellUs}}</p>
+                <textarea name="tellUs" id="tellUsFiel"></textarea>
+            </section>
+        </section>
+        <button type="submit">{{strings.register}}</button>
+    </form>
+    <br>
+    <a href="/auth/login">{{strings.iAlreadyAnAccount}}</a>
+    <br>
+    <a href="/">{{strings.backToHome}}</a>
+</section>

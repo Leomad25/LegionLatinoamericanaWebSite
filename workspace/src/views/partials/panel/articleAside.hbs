@@ -1,0 +1,102 @@
+<article class="aside" id="aside">
+    <link rel="stylesheet" href="/css/partials/panel/articleAside.css">
+    <section class="items">
+        <ul>
+            <li>
+                <section class="item">
+                    <section class="title" onclick="window.location.href='/';">
+                        <h1 class="full">{{strings.nav.home}}</h1>
+                    </section>
+                </section>
+            </li>
+            <li>
+                <section class="item" onclick="window.location.href='/profile';">
+                    <section class="title">
+                        <h1 class="full">{{strings.nav.profile}}</h1>
+                    </section>
+                </section>
+            </li>
+            <li>
+                <section class="item" onclick="window.location.href='/roster';">
+                    <section class="title">
+                        <h1 class="full">{{strings.nav.roster}}</h1>
+                    </section>
+                </section>
+            </li>
+            <li id="navegation-courses">
+                <section class="item">
+                    <section class="title" onclick="navegationItem('navegation-courses');">
+                        <section class="animation">
+                            <section class="bar close-1"></section>
+                            <section class="bar close-2"></section>
+                        </section>
+                        <h1>{{strings.nav.courses.title}}</h1>
+                    </section>
+                    <section class="subitems">
+                        <ul>
+                            <li><h2>{{strings.nav.courses.requestCourse}}</h2></li>
+                            <li><h2>{{strings.nav.courses.schedule}}</h2></li>
+                            <li><h2>{{strings.nav.courses.administration}}</h2></li>
+                        </ul>
+                    </section>
+                </section>
+            </li>
+            <li id="navegation-squad">
+                <section class="item">
+                    <section class="title" onclick="navegationItem('navegation-squad');">
+                        <section class="animation">
+                            <section class="bar close-1"></section>
+                            <section class="bar close-2"></section>
+                        </section>
+                        <h1>{{strings.nav.squads}}</h1>
+                    </section>
+                    <section class="subitems">
+                        <ul>
+                        </ul>
+                    </section>
+                </section>
+            </li>
+            <li id="navegation-users">
+                <section class="item">
+                    <section class="title" onclick="navegationItem('navegation-users');">
+                        <section class="animation">
+                            <section class="bar close-1"></section>
+                            <section class="bar close-2"></section>
+                        </section>
+                        <h1>{{strings.nav.users.title}}</h1>
+                    </section>
+                    <section class="subitems">
+                        <ul>
+                            <li><h2>{{strings.nav.users.newUser}}</h2></li>
+                            <li><h2>{{strings.nav.users.joinForm}}</h2></li>
+                            <li><h2>{{strings.nav.users.existingUser}}</h2></li>
+                        </ul>
+                    </section>
+                </section>
+            </li>
+            <li>
+                <section class="item" onclick="window.location.href='/panel/permissions';">
+                    <section class="title">
+                        <h1 class="full">{{strings.nav.permissions}}</h1>
+                    </section>
+                </section>
+            </li>
+            <li id="navegation-clan">
+                <section class="item">
+                    <section class="title" onclick="navegationItem('navegation-clan');">
+                        <section class="animation">
+                            <section class="bar close-1"></section>
+                            <section class="bar close-2"></section>
+                        </section>
+                        <h1>{{strings.nav.clan.title}}</h1>
+                    </section>
+                    <section class="subitems">
+                        <ul>
+                        </ul>
+                    </section>
+                </section>
+            </li>
+        </ul>
+    </section>
+    <script src="/js/partials/panel/articleAside.js"></script>
+</article>

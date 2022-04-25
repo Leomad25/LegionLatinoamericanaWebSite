@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Times New Roman';
+    cursor: default;
+    outline: none;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: rgb(80, 80, 80);
+}
+
+    body::-webkit-scrollbar {
+        width: .8em;
+        background: gray;
+        border-left: 2px solid gold;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: black;
+        border-left: 2px solid gold;
+    }
+
+    body main {
+        padding-bottom: 1.6em;
+    }
+
+    body footer {
+        background-color: black;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        height: 1.6em;
+    }
+
+        body footer p {
+            color: white;
+            position: absolute;
+            display: flex;
+            top: 50%;
+            right: 0;
+            margin-right: 1em;
+            transform: translateY(-50%);
+        }
+
+        body footer .btns {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+            body footer .btns img {
+                height: 1em;
+                margin-left: .5em;
+                margin-right: .5em;
+                cursor: pointer;
+            }

@@ -1,0 +1,208 @@
+body {
+    text-align: center;
+}
+
+    body .back-buttons {
+        width: 100%;
+        border-bottom: 3px double gold;
+        padding-top: .5em;
+        padding-bottom: 1em;
+    }
+
+        body .back-buttons button {
+            padding: .5em 1em;
+            background-color: black;
+            border-radius: 25px;
+            border: 2px solid gold;
+            box-shadow: .5em .5em 1em black;
+            margin-right: .5em;
+            margin-left: .5em;
+            font-size: 1.2em;
+            color: gold;
+            cursor: pointer;
+        }
+
+.content {
+    width: 100%;
+    overflow: hidden;
+    padding: 1em 0;
+}
+
+    .content .title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+        .content .title .logo {
+            width: 25%;
+        }
+
+        .content .title h1 {
+            font-size: 4em;
+            color: gold;
+            font-style: italic;
+            text-shadow: 0.3em 0.3em 0.4em black;
+            margin: 0 1em;
+        }
+
+        .content .title img {
+            width: 80px;
+        }
+
+    .content .user-info,
+    .content .role-info,
+    .content .edit-profile,
+    .content .approvedCourses {
+        display: inline-block;
+        box-shadow: .5em .5em 1em black;
+        border-radius: 25px;
+        padding: 1em 0;
+        width: 90%;
+        border: 2px solid gold;
+    }
+
+    .content .approvedCourses {
+        margin-top: .8em;
+    }
+
+        .content .approvedCourses p {
+            color: white;
+            margin-top: .5em;
+        }
+
+    .content .role-info,
+    .content .edit-profile {
+        margin-top: 2.5em;
+    }
+
+        .content .user-info h2,
+        .content .role-info h2 {
+            padding-left: 1em;
+            margin: 0 1em;
+            color: gold;
+            font-style: italic;
+            font-size: 1.5em;
+            text-shadow: 0.3em 0.3em 0.4em black;
+        }
+
+        .content .user-info ul,
+        .content .role-info ul {
+            list-style: none;
+            margin-top: .5em;
+            padding: 0 1em;
+        }
+
+            .content .user-info ul li,
+            .content .role-info ul li {
+                display: inline-block;
+                padding: 0 1em;
+                font-size: 1.2em;
+                font-style: italic;
+            }
+
+                .content .user-info ul li .label,
+                .content .role-info ul li .label {
+                    color: gold;
+                }
+
+                .content .user-info ul li .info,
+                .content .role-info ul li .info {
+                    color: white;
+                    text-transform: uppercase;
+                    background-color: rgba(0, 0, 0, .4);
+                    padding: 0 .5em;
+                    border-radius: 25px;
+                }
+
+    .content .edit-profile {
+        padding: .5em;
+        background-color: rgba(255, 255, 255, .2);
+    }
+
+        .content .edit-profile form {
+            display: inline-block;
+            box-shadow: .5em .5em 1em black;
+            border-radius: 25px;
+            border: 2px solid gold;
+            background-color: rgba(0, 0, 0, .4);
+        }
+
+            .content .edit-profile form h2 {
+                padding: .2em 1em;
+                color: gold;
+                font-style: italic;
+                font-size: 1.8em;
+                text-shadow: 0.3em 0.3em 0.4em black;
+            }
+
+            .content .edit-profile form p {
+                padding: 0 1em;
+                font-weight: bold;
+                font-size: 1.1em;
+                text-align: justify;
+                text-align: center;
+                color: white;
+            }
+
+            .content .edit-profile form input {
+                width: 80%;
+                padding: .5em 1em;
+                border: 2px solid gold;
+                background-color: black;
+                color: white;
+                cursor: text;
+                font-size: 1.05em;
+                border-radius: 25px;
+                margin-top: .5em;
+                text-align: center;
+            }
+
+            .content .edit-profile form select {
+                text-align: center;
+                width: 80%;
+                cursor: pointer;
+                padding: .5em 1em;
+                border: 2px solid gold;
+                background: black;
+                color: white;
+                font-size: 1.05em;
+                border-top-left-radius: 25px;
+                border-bottom-left-radius: 25px;
+                margin-top: .5em;
+            }
+
+            .content .edit-profile form button {
+                margin: .5em 0;
+                font-size: 1.2em;
+                color: gold;
+                font-style: italic;
+                font-weight: bold;
+                text-transform: uppercase;
+                background-color: rgba(255, 255, 255, .2);
+                text-shadow: 0.3em 0.3em 0.4em black;
+                box-shadow: .5em .5em 1em black;
+                padding: .2em 1.2em;
+                border: 2px solid gold;
+                border-radius: 25px;
+                cursor: pointer;
+            }
+
+@media (max-width: 800px) {
+    .content .edit-profile {
+        padding: 0;
+    }
+
+        .content .edit-profile form {
+            width: 95%;
+            margin: .5em 0;
+        }
+}
+
+@media (min-width: 800px) {
+    .content .edit-profile form {
+        width: 45%;
+        max-width: 500px;
+        margin: .5em .2em;
+    }
+}

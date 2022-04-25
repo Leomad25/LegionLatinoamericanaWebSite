@@ -1,0 +1,142 @@
+main .aside {
+    top: 0;
+    left: 0;
+    position: fixed;
+    overflow: hidden;
+    width: 300px;
+    height: 100vh;
+    z-index: 2;
+    transition: all .5s;
+    transform: translateX(-100%);
+}
+
+    main .aside .items {
+        height: calc(calc(100% - 100px) - 1.6em);
+        margin-top: 100px;
+        background-color: gold;
+        overflow: hidden;
+        overflow-y: auto;
+        text-align: center;
+    }
+
+        main .aside .items::-webkit-scrollbar {
+            width: .8em;
+            background: black;
+            border-right: 2px solid gold;
+        }
+
+        main .aside .items::-webkit-scrollbar-thumb {
+            width: .8em;
+            background: gold;
+            border: 4px solid black;
+            border-right: 2px solid gold;
+            border-radius: .4em;
+        }
+
+        main .aside .items ul {
+            width: 100%;
+            text-decoration: none;
+        }
+
+            main .aside .items li {
+                border-bottom: 3px solid rgb(40, 40, 40);
+                transition: all .5s;
+                width: 100%;
+            }
+
+                main .aside .items li * {
+                    transition: all .5s;
+                }
+
+                main .aside .items li .item {
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                    main .aside .items li .item .title {
+                        width: 100%;
+                        display: flex;
+                        z-index: 6;
+                        background-color: gold;
+                        padding-top: .5em;
+                        padding-bottom: .5em;
+                        cursor: pointer;
+                    }
+
+                        main .aside .items li .item .title * {
+                            cursor: pointer;
+                        }
+
+                        main .aside .items li .item .title h1 {
+                            font-size: 2em;
+                            font-style: italic;
+                            width: calc(100% - 48px);
+                        }
+
+                        main .aside .items li .item .title .full {
+                            width: 100%;
+                        }
+
+                        main .aside .items li .item .title .animation {
+                            width: 45px;
+                            height: 40px;
+                            border-right: 3px solid black;
+                            position: relative;
+                        }
+
+                            main .aside .items li .item .title .animation .bar {
+                                width: 30px;
+                                height: 5px;
+                                background-color: black;
+                                position: absolute;
+                            }
+
+                            main .aside .items li .item .title .animation .close-1 {
+                                top: 72%;
+                                left: 50%;
+                                transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+                            }
+
+                            main .aside .items li .item .title .animation .close-2 {
+                                top: 28%;
+                                left: 50%;
+                                transform: translateX(-50%) translateY(-50%) rotate(45deg);
+                            }
+
+                            main .aside .items li .item .title .animation .open-1 {
+                                top: 50%;
+                                left: 30%;
+                                transform: translateX(-50%) translateY(-50%) rotate(45deg);
+                            }
+
+                            main .aside .items li .item .title .animation .open-2 {
+                                top: 50%;
+                                left: 70%;
+                                transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+                            }
+
+                    main .aside .items li .item .subitems {
+                        width: calc(100% - 45px);
+                        margin-left: 45px;
+                        z-index: 3;
+                        transition: all .5s;
+                        transform: translateX(calc(-100% - 45px));
+                        display: none;
+                    }
+
+                        main .aside .items li .item .subitems ul {
+                            list-style: none;
+                        }
+
+                            main .aside .items li .item .subitems ul li {
+                                border: 0;
+                                cursor: pointer;
+                            }
+
+                                main .aside .items li .item .subitems ul li:hover * {
+                                    background-color: rgb(40, 40, 40);
+                                    color: white;
+                                    cursor: pointer;
+                                    padding-top: .2em;
+                                    padding-bottom: .2em;
+                                }

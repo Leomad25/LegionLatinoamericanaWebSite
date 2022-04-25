@@ -1,0 +1,14 @@
+<section class="card">
+    <h1>{{strings.legionLatinoamericana}}</h1>
+    <img src="/image/logo.png">
+    <form action="/auth/activation" method="post">
+        <p>{{strings.messages}}</p>
+        <p><b>{{user.email}}</b></p>
+        <input type="text" name="" placeholder="{{strings.code}}">
+        <br>
+        <button type="submit">{{strings.activate}}</button>
+    </form>
+    <a href="/auth/changeEmail">{{strings.changeEmail}}</a>
+    <br>
+    <a href="/">{{strings.backToHome}}</a>
+</section>

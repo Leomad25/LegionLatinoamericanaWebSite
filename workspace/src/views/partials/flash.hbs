@@ -1,0 +1,13 @@
+{{#if flash}}
+<section class="flashMessage" id="flashMessage" style="z-index: 5">
+    <link rel="stylesheet" href="/css/partials/flash.css" type="text/css">
+    <section class="message">
+        {{#if flash.error}}<h1 class="error">{{flash.title}}</h1>{{/if}}
+        {{#if flash.info}}<h1 class="info">{{flash.title}}</h1>{{/if}}
+        {{#if flash.success}}<h1 class="success">{{flash.title}}</h1>{{/if}}
+        <p>{{flash.message}}</p>
+        <button onclick="closeFlash()">{{flash.btn}}</button>
+    </section>
+    <script src="/js/partials/flash.js"></script>
+</section>
+{{/if}}

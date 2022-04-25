@@ -1,0 +1,103 @@
+body {
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+    body h1 {
+        font-size: 3em;
+        font-style: italic;
+        color: gold;
+        text-shadow: 0.2em 0.2em 0.4em black;
+        border-bottom: 3px double gold;
+        padding-bottom: .4em;
+    }
+
+    body .anAdministratorWasAlert {
+        margin-top: 1em;
+        width: 90%;
+        margin-left: 5%;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 25px;
+    }
+
+        body .anAdministratorWasAlert p {
+            font-size: 1.2em;
+            font-style: italic;
+            color: white;
+            padding: .5em;
+        }
+
+    body .instructions {
+        width: 100%;
+        overflow: hidden;
+        border-top: 3px double gold;
+        margin-top: 1em;
+    }
+    
+        body .instructions h2 {
+            margin-top: .5em;
+            padding-bottom: .2em;
+            font-size: 2.5em;
+            font-style: italic;
+            color: gold;
+            text-shadow: 0.2em 0.2em 0.4em black;
+        }
+
+        body .instructions h3 {
+            margin-top: 0.5em;
+            font-size: 1.8em;
+            font-style: italic;
+            color: gold;
+            text-decoration: underline;
+        }
+
+        body .instructions p {
+            font-size: 1.2em;
+            color: white;
+        }
+
+        body .instructions .helpUs {
+            margin-top: .3em;
+        }
+
+        body .steps {
+            width: 100%;
+            text-align: left;
+        }
+
+            body .steps h3 {
+                padding-left: 2%;
+                margin-bottom: .2em;
+            }
+
+            body .steps p {
+                font-size: 1.1em;
+                text-align: justify;
+                padding-left: 4%;
+                padding-right: 4%;
+                margin-top: .2em;
+                margin-bottom: .2em;
+            }
+
+            body .steps a {
+                font-size: 1.15em;
+                font-style: italic;
+                color: gold;
+                cursor: pointer;
+            }
+
+            body .steps img {
+                margin-top: .5em;
+                margin-bottom: .5em;
+                margin-left: 2%;
+                max-width: 95%;
+                min-width: 40%;
+                box-shadow: .2em .2em .4em black;
+            }
+
+            body .steps .imgNotWidth {
+                min-width: 280px;
+            }

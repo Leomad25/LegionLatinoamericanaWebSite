@@ -1,0 +1,90 @@
+main {
+    padding-top: 1em;
+    padding-bottom: 1.6em;
+}
+
+.card {
+    margin-left: 5%;
+    background-color: rgba(255, 255, 255, .2);
+    margin-bottom: 1em;
+    width: 90%;
+    border: 2px solid gold;
+    border-radius: 25px;
+}
+
+    .card .title {
+        background-color: rgba(0, 0, 0, .4);
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        width: 100%;
+        padding: .5em 0;
+    }
+
+        .card .title img {
+            width: 60px;
+        }
+
+        .card .title h1 {
+            font-style: italic;
+            font-size: 3em;
+            color: gold;
+            padding: 0 1.5em;
+        }
+
+    .card .rule {
+        margin: 0 1em;
+        margin-top: 1em;
+    }
+
+        .card .rule h2 {
+            color: gold;
+            font-style: italic;
+            font-size: 1.5em;
+        }
+
+        .card .rule ul {
+            margin-left: 1.5em;
+        }
+
+            .card .rule ul li {
+                font-size: 1.1em;
+            }
+
+    .card h3 {
+        margin-top: 1em;
+        background-color: rgba(0, 0, 0, .4);
+        color: gold;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        text-align: center;
+        font-size: 1.5em;
+        padding: .1em 0;
+    }
+
+    .card form {
+        text-align: center;
+        padding: 1em 0;
+    }
+
+        .card form p {
+            font-size: 1.2em;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .card form button {
+            font-size: 1.2em;
+            padding: .2em .5em;
+            background-color: black;
+            border: 1px solid gold;
+            color: gold;
+            border-radius: 25px;
+            box-shadow: .2em .2em .4em black;
+            cursor: pointer;
+            font-style: italic;
+            margin-top: .5em;
+        }

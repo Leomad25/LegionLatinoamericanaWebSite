@@ -1,0 +1,16 @@
+<section class="btns">
+    <button onclick="window.location.href ='/'">{{strings.backToHome}}</button>
+    {{#if user}}<button onclick="window.location.href ='/panel'">{{strings.backToPanel}}</button>{{/if}}
+</section>
+<section class="content">
+    <section class="title">
+        <table>
+            <tr>
+                <td class="logo"><img src="/image/logo.png"></td>
+                <td><h1>{{strings.legionLatinoamericana}}</h1></td>
+                <td class="logo"><img src="/image/logo.png"></td>
+            </tr>
+        </table>
+    </section>
+    <section class="info" id="info"></section>
+</section>

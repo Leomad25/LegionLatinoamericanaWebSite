@@ -1,0 +1,55 @@
+.flashMessage {
+    position: fixed;
+    width: 100%;
+    max-width: 500px;
+    background-color: rgb(200, 200, 200);
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 25px;
+    text-align: center;
+    border: 3px solid gold;
+    padding: .5em;
+}
+
+    .flashMessage h1 {
+        font-size: 1.8em;
+        font-style: italic;
+        width: 100%;
+    }
+
+    .flashMessage .error {
+        color: red;
+        border-bottom: 3px dotted red;
+    }
+
+    .flashMessage .info {
+        color: blue;
+        border-bottom: 3px dotted blue;
+    }
+
+    .flashMessage .success {
+        color: green;
+        border-bottom: 3px dotted green;
+    }
+
+    .flashMessage p {
+        margin: 1em 0;
+        font-size: 1.2em;
+    }
+
+    .flashMessage button {
+        cursor: pointer;
+        background-color: black;
+        border: 2px solid gold;
+        box-shadow: .2em .2em .4em black;
+        border-radius: 25px;
+        color: gold;
+        font-size: 1.5em;
+        margin-bottom: .3em;
+        width: 80%;
+        font-style: italic;
+        font-weight: bold;
+        padding-top: .2em;
+        padding-bottom: .2em;
+    }

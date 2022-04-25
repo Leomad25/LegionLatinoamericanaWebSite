@@ -1,0 +1,72 @@
+main {
+    text-align: center;
+}
+
+main .btns {
+    width: 100%;
+    border-bottom: 3px double gold;
+    padding-top: .5em;
+    padding-bottom: 1em;
+}
+
+    main .btns button {
+        padding: .5em 1em;
+        background-color: black;
+        border-radius: 25px;
+        border: 2px solid gold;
+        box-shadow: .5em .5em 1em black;
+        margin-right: .5em;
+        margin-left: .5em;
+        font-size: 1.2em;
+        color: gold;
+        cursor: pointer;
+    }
+
+main .content {
+    background-color: rgba(0, 0, 0, .2);
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 25px;
+}
+
+    main .content h1 {
+        color: gold;
+        font-size: 3.5em;
+        margin-bottom: .5em;
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    main .content .subContent {
+        background-color: rgba(0, 0, 0, .2);
+        margin-top: 1em;
+        padding-bottom: 1em;
+        border-radius: 25px;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+        main .content .subContent h2 {
+            color: gold;
+            font-size: 1.5em;
+            font-weight: bold;
+            font-style: oblique;
+        }
+
+        main .content .subContent ul {
+            list-style: none;
+            margin-top: 1em;
+        }
+
+            main .content .subContent ul li {
+                color: white;
+                font-size: 1em;
+            }
+
+            main .content .subContent ul li span {
+                color: gold;
+                font-style: italic;
+            }

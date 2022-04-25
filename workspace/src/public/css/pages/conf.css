@@ -1,0 +1,70 @@
+main {
+    text-align: center;
+}
+
+    main .btns {
+        width: 100%;
+        border-bottom: 3px double gold;
+        padding-top: .5em;
+        padding-bottom: 1em;
+    }
+
+        main .btns button {
+            padding: .5em 1em;
+            background-color: black;
+            border-radius: 25px;
+            border: 2px solid gold;
+            box-shadow: .5em .5em 1em black;
+            margin-right: .5em;
+            margin-left: .5em;
+            font-size: 1.2em;
+            color: gold;
+            cursor: pointer;
+        }
+
+    main h1 {
+        color: gold;
+        font-size: 3em;
+        font-style: italic;
+        margin-top: .2em;
+        margin-bottom: .5em;
+    }
+
+    main article {
+        background-color: rgba(255, 255, 255, .2);
+        padding-top: .5em;
+        padding-bottom: .5em;
+    }
+
+        main article h2 {
+            font-size: 1.5em;
+            color: gold;
+            font-style: oblique;
+        }
+
+.langSelector select {
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    cursor: pointer;
+    padding: 7px 10px;
+    border: 2px solid gold;
+    border-radius: 0;
+    background: black;
+    color: white;
+    font-size: 1em;
+    border:2px solid rgba(0,0,0,.2);
+    border-radius: 25px;
+    margin: 1em 0;
+}
+
+.langSelector button {
+    border: 2px solid gold;
+    background-color: black;
+    color: gold;
+    font-size: 1.2em;
+    font-style: italic;
+    padding: .5em 1em;
+    border-radius: 25px;
+    cursor: pointer;
+}
