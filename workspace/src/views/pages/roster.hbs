@@ -3,7 +3,7 @@
     {{#if user}}<button onclick="window.location.href ='/panel'">{{strings.backToPanel}}</button>{{/if}}
 </section>
 <section class="content">
-    <section class="title">
+    <section class="title" id="title">
         <table>
             <tr>
                 <td class="logo"><img src="/image/logo.png"></td>
@@ -12,5 +12,45 @@
             </tr>
         </table>
     </section>
-    <section class="info" id="info"></section>
+    <section class="info" id="info">
+        <h2>{{strings.roster}}</h2>
+        <section class="items-btns">
+            <ul>
+                <li {{#unless pageConf.filter.personal}}onclick="window.location.href = '/roster?filter=personal'"{{/unless}} {{#if pageConf.filter.personal}}class="selected"{{/if}}>
+                    <p>{{strings.personal}}</p>
+                    {{#if pageConf.filter.personal}}
+                    <section class="decoration decoration-right">
+                        <section class="cut"></section>
+                    </section>
+                    {{/if}}
+                </li>
+                <li class="spliter"></li>
+                <li {{#unless pageConf.filter.ranks}}onclick="window.location.href = '/roster?filter=ranks'"{{/unless}} {{#if pageConf.filter.ranks}}class="selected"{{/if}}>
+                    <p>{{strings.ranks}}</p>
+                    {{#if pageConf.filter.ranks}}
+                    <section class="decoration decoration-left">
+                        <section class="cut"></section>
+                    </section>
+                    <section class="decoration decoration-right">
+                        <section class="cut"></section>
+                    </section>
+                    {{/if}}
+                </li>
+                <li class="spliter"></li>
+                <li {{#unless pageConf.filter.awards}}onclick="window.location.href = '/roster?filter=awards'"{{/unless}} {{#if pageConf.filter.awards}}class="selected"{{/if}}>
+                    <p>{{strings.awards}}</p>
+                    {{#if pageConf.filter.awards}}
+                    <section class="decoration decoration-left">
+                        <section class="cut"></section>
+                    </section>
+                    {{/if}}
+                </li>
+            </ul>
+        </section>
+        <section class="items" id="items-info">
+            {{#if pageConf.filter.personal}}{{>roster/personal}}{{/if}}
+            {{#if pageConf.filter.ranks}}{{>roster/ranks}}{{/if}}
+            {{#if pageConf.filter.awards}}{{>roster/awards}}{{/if}}
+        </section>
+    </section>
 </section>

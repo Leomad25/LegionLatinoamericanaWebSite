@@ -277,7 +277,11 @@ module.exports = {
     roster: {
         legionLatinoamericana: 'Legión Latinoamericana',
         backToHome: 'Back to home',
-        backToPanel: 'Back to panel'
+        backToPanel: 'Back to panel',
+        roster: 'Roster',
+        personal: 'Personal',
+        ranks: 'Ranks',
+        awards: 'Awards'
     },
 
     panel: {

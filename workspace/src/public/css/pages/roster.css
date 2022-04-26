@@ -1,5 +1,7 @@
 main {
     text-align: center;
+    width: 100%;
+    overflow: hidden;
 }
 
     main .btns {
@@ -23,5 +25,146 @@ main {
         }
 
     main .content {
-
+        width: 100%;
     }
+
+        main .content h2 {
+            font-size: 4rem;
+            color: gold;
+            margin-bottom: 10px;
+        }
+
+        main .content .title {
+            width: 100%;
+            z-index: 3;
+            background-color: rgb(80, 80, 80);
+        }
+
+            main .content .title table {
+                width: 100%;
+                transition: all .5s;
+            }
+
+            main .content .title .sticky-title {
+                z-index: 5;
+                position: fixed;
+                top: 0;
+                background-color: rgb(50, 50, 50);
+                border-bottom: 2px solid gold;
+            }
+
+                main .content .title table tr {
+                    width: 100%;
+                }
+
+                    main .content .title table tr td h1 {
+                        color: gold;
+                        font-size: 3rem;
+                        font-style: italic;
+                        margin-top: .2em;
+                        margin-bottom: .5em;
+                        transition: all .5s;
+                    }
+
+                    @media (max-width: 700px) {
+                        main .content .title table tr td h1 {
+                            font-size: 2rem;
+                        }
+                    }
+
+                    main .content .title table tr td img {
+                        height: 80px;
+                    }
+
+        main .content .info {
+            width: 80%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            background-color: rgb(100, 100, 100);
+            padding: 1rem;
+            border-radius: 25px;
+        }
+
+            main .content .info .items-btns ul {
+                list-style: none;
+                display: flex;
+            }
+
+                main .content .info .items-btns ul .selected {
+                    background-color: rgb(40, 40, 40);
+                    cursor: default;
+                }
+
+                    main .content .info .items-btns ul .selected:hover {
+                        background-color: rgb(40, 40, 40);
+                    }
+
+                    main .content .info .items-btns ul .selected p {
+                        cursor: default;
+                    }
+
+                main .content .info .items-btns ul li {
+                    width: 33.33%;
+                    transition: all .5s;
+                    padding-top: .5rem;
+                    padding-bottom: .5rem;
+                    border-radius: 25px 25px 0 0;
+                    position: relative;
+                }
+                
+                    main .content .info .items-btns ul li p {
+                        color: gold;
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                    }
+
+                    main .content .info .items-btns ul li .decoration {
+                        width: 25px;
+                        height: 100%;
+                        background-color: rgb(40, 40, 40);
+                        position: absolute;
+                        top: 0;
+                    }
+
+                        main .content .info .items-btns ul li .decoration .cut {
+                            transform: translateX(-1px);
+                            width: calc(100% + 2px);
+                            height: 100%;
+                            background-color: rgb(100, 100, 100);
+                        }
+
+                    main .content .info .items-btns ul li .decoration-right {
+                        left: 100%;
+                    }
+
+                        main .content .info .items-btns ul li .decoration-right .cut {
+                            border-bottom-left-radius: 25px;
+                        }
+
+                    main .content .info .items-btns ul li .decoration-left {
+                        left: 0;
+                        transform: translateX(-100%);
+                    }
+
+                        main .content .info .items-btns ul li .decoration-left .cut {
+                            border-bottom-right-radius: 25px;
+                        }
+
+                    main .content .info .items-btns ul li:hover {
+                        background-color: rgb(60, 60, 60);
+                    }
+
+                main .content .info .items-btns ul .spliter {
+                    width: 25px;
+                    border-radius: 0;
+                    padding: 0;
+                    cursor: default;
+                }
+
+                    main .content .info .items-btns ul .spliter:hover {
+                        background-color: rgb(100, 100, 100);
+                    }
+
+        main .content .info .items {
+             background-color: rgba(40, 40, 40)
+        }
