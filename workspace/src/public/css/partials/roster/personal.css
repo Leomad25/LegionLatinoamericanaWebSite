@@ -1,0 +1,113 @@
+.personal {
+    width: 96%;
+    margin-left: 50%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transform: translateX(-50%);
+}
+
+    .personal .btns-personal {
+        background-color: rgb(100, 100, 100);
+        border-radius: 25px 25px 0 0;
+    }
+
+        .personal .btns-personal ul {
+            list-style: none;
+            display: flex;
+        }
+
+            .personal .btns-personal ul li {
+                width: calc(50% - calc(25px / 2));
+                transition: all .5s;
+                padding-top: .5rem;
+                padding-bottom: .5rem;
+                border-radius: 25px 25px 0 0;
+                position: relative;
+            }
+
+                .personal .btns-personal ul li[class='item']:hover {
+                    background-color: rgb(60, 60, 60);
+                }
+
+                .personal .btns-personal ul li p {
+                    color: gold;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                }
+
+                .personal .btns-personal ul .selected .decoration {
+                    width: 25px;
+                    height: 100%;
+                    background-color: rgb(40, 40, 40);
+                    position: absolute;
+                    top: 0;
+                }
+
+                    .personal .btns-personal ul .selected .decoration .cut {
+                        transform: translateX(-1px);
+                        width: calc(100% + 2px);
+                        height: 100%;
+                        background-color: rgb(100, 100, 100);
+                    }
+
+                .personal .btns-personal ul .selected .decoration-right {
+                    left: 100%;
+                }
+
+                    .personal .btns-personal ul .selected .decoration-right .cut {
+                        border-bottom-left-radius: 25px;
+                    }
+
+                .personal .btns-personal ul .selected .decoration-left {
+                    left: 0;
+                    transform: translateX(-100%);
+                }
+
+                    .personal .btns-personal ul .selected .decoration-left .cut {
+                        border-bottom-right-radius: 25px;
+                    }
+
+            .personal .btns-personal ul .spliter {
+                width: 25px;
+                border-radius: 0;
+                padding: 0;
+                cursor: default;
+            }
+
+            .personal .btns-personal ul .selected {
+                background-color: rgb(40, 40, 40);
+            }
+
+#content-tables .sec-table {
+    margin-top: 1em;
+    border-radius: 25px;
+    width: 90%;
+    margin-left: 5%;
+    background-color: rgb(100, 100, 100);
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+    #content-tables .sec-table h3 {
+        text-align: right;
+        color: gold;
+        font-size: 1.5rem;
+        padding-right: 25px;
+    }
+
+    #content-tables .sec-table table {
+        width: calc(100% - 50px);
+        margin-left: 25px;
+    }
+
+        #content-tables .sec-table table tr {
+            display: inline-flex;
+            width: 100%;
+        }
+
+            #content-tables .sec-table table tr td {
+                border-bottom: 2px solid gold;
+                width: 100%;
+                font-size: 1.2rem;
+                color: white;
+            }

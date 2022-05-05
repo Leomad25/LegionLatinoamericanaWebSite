@@ -281,7 +281,9 @@ module.exports = {
         roster: 'Roster',
         personal: 'Personal',
         ranks: 'Ranks',
-        awards: 'Awards'
+        awards: 'Awards',
+        squads: 'Squads',
+        staff: 'Staff',
     },
 
     panel: {

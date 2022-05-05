@@ -110,6 +110,7 @@ main {
                     padding-bottom: .5rem;
                     border-radius: 25px 25px 0 0;
                     position: relative;
+                    cursor: pointer;
                 }
                 
                     main .content .info .items-btns ul li p {
@@ -150,7 +151,7 @@ main {
                             border-bottom-right-radius: 25px;
                         }
 
-                    main .content .info .items-btns ul li:hover {
+                    main .content .info .items-btns ul li[class='item']:hover {
                         background-color: rgb(60, 60, 60);
                     }
 
@@ -160,10 +161,6 @@ main {
                     padding: 0;
                     cursor: default;
                 }
-
-                    main .content .info .items-btns ul .spliter:hover {
-                        background-color: rgb(100, 100, 100);
-                    }
 
         main .content .info .items {
              background-color: rgba(40, 40, 40)

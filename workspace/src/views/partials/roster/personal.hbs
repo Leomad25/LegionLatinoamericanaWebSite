@@ -1,1 +1,49 @@
-personal
+<link rel="stylesheet" href="/css/partials/roster/personal.css">
+<section class="personal">
+    <section class="btns-personal">
+        <ul>
+            <li class="item selected" onclick="loadData(0)">
+                <p>{{strings.squads}}</p>
+                <section class="decoration decoration-right">
+                    <section class="cut"></section>
+                </section>
+            </li>
+            <li class="spliter"></li>
+            <li class="item" onclick="loadData(1)">
+                <p>{{strings.staff}}</p>
+                <section class="decoration decoration-left">
+                    <section class="cut"></section>
+                </section>
+            </li>
+        </ul>
+    </section>
+    <section class="content" id="content-tables"></section>
+</section>
+<!-- Start insert data values -->
+<script>
+    const data = [];
+    let list = [];
+    {{#each pageConf.data}}
+    list = [];
+    {{#each list}}
+    list.push({
+        rankUrl: '{{url}}',
+        name: '{{username}}',
+        rank: '{{rank}}',
+        status: '{{status}}'
+    });
+    {{/each}}
+    data.push({squad: '{{squad}}', list});
+    {{/each}}
+    const staff = [];
+    {{#each pageConf.dataStaff}}
+    staff.push({
+        rankUrl: '{{url}}',
+        name: '{{username}}',
+        rank: '{{rank}}',
+        status: '{{status}}'
+    });
+    {{/each}}
+</script>
+<!-- Done insert data values -->
+<script src="/js/partials/roster.js"></script>

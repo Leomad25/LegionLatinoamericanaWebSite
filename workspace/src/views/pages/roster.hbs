@@ -16,7 +16,7 @@
         <h2>{{strings.roster}}</h2>
         <section class="items-btns">
             <ul>
-                <li {{#unless pageConf.filter.personal}}onclick="window.location.href = '/roster?filter=personal'"{{/unless}} {{#if pageConf.filter.personal}}class="selected"{{/if}}>
+                <li {{#unless pageConf.filter.personal}}onclick="window.location.href = '/roster?filter=personal'"{{/unless}} class="item{{#if pageConf.filter.personal}} selected{{/if}}">
                     <p>{{strings.personal}}</p>
                     {{#if pageConf.filter.personal}}
                     <section class="decoration decoration-right">
@@ -25,7 +25,7 @@
                     {{/if}}
                 </li>
                 <li class="spliter"></li>
-                <li {{#unless pageConf.filter.ranks}}onclick="window.location.href = '/roster?filter=ranks'"{{/unless}} {{#if pageConf.filter.ranks}}class="selected"{{/if}}>
+                <li {{#unless pageConf.filter.ranks}}onclick="window.location.href = '/roster?filter=ranks'"{{/unless}} class="item{{#if pageConf.filter.ranks}} selected{{/if}}">
                     <p>{{strings.ranks}}</p>
                     {{#if pageConf.filter.ranks}}
                     <section class="decoration decoration-left">
@@ -37,7 +37,7 @@
                     {{/if}}
                 </li>
                 <li class="spliter"></li>
-                <li {{#unless pageConf.filter.awards}}onclick="window.location.href = '/roster?filter=awards'"{{/unless}} {{#if pageConf.filter.awards}}class="selected"{{/if}}>
+                <li {{#unless pageConf.filter.awards}}onclick="window.location.href = '/roster?filter=awards'"{{/unless}} class="item{{#if pageConf.filter.awards}} selected{{/if}}">
                     <p>{{strings.awards}}</p>
                     {{#if pageConf.filter.awards}}
                     <section class="decoration decoration-left">
