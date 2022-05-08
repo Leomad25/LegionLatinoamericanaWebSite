@@ -1,3 +1,5 @@
+
+
 const controller = {
     getPanel: async (req, res) => {
         const userExtra = await require('../lib/userExtra')(req);
@@ -19,6 +21,12 @@ const controller = {
             strings: require('../lib/langSelector').cbi(req),
             pageConf
         });
+    },
+
+    courses: {
+        requestCourse: require('./panel/courses.controller').requestCourse,
+        schedule: require('./panel/courses.controller').schedule,
+        administration: require('./panel/courses.controller').administration
     }
 }
 
