@@ -31,7 +31,7 @@ module.exports = controller;
 async function loadData(pageConf) {
     if (pageConf.filter.filter == 'personal') {
         const users = await pool.query('SELECT users.iduser, users.username, userextras.idsquad, userextras.idrank, users.status, users.staff FROM legion_latinoamericana_website.users , legion_latinoamericana_website.userextras WHERE (userextras.iduser = users.iduser AND userextras.cbi = 1);');
-        const ranks = await pool.query('SELECT idrank, tag FROM legion_latinoamericana_website.ranks;');
+        const ranks = await pool.query('SELECT idrank, tag, infantry, airforce, icon FROM legion_latinoamericana_website.ranks;');
         const squads = await pool.query('SELECT * FROM legion_latinoamericana_website.squads;');
         pageConf.data = [];
         pageConf.dataStaff = [];
@@ -45,7 +45,33 @@ async function loadData(pageConf) {
         loadUsersToTables(users, pageConf);
         // delete the empty tables
         deleteEmptyTable(pageConf);
-        //console.log(pageConf);
+        // order by rank
+        orderTableByRank(pageConf);
+    }
+
+    if (pageConf.filter.filter == 'ranks') {
+        const ranks = await pool.query('SELECT * FROM legion_latinoamericana_website.ranks WHERE visible = 1;');
+        const infantry = [];
+        const airforce = [];
+        const civilian = [];
+        ranks.forEach((element) => {
+            let rankIcon = '/image/'
+            if (element.infantry == 1) rankIcon += 'ranks/infantry/' + element.icon;
+            if (element.airforce == 1) rankIcon += 'ranks/airForce/' + element.icon;
+            if (element.infantry == 0 && element.airforce == 0) rankIcon += 'no-photo.png';
+            const item = {
+                rankIcon,
+                tag: element.tag,
+                name: element.name
+            };
+            if (element.infantry == 1) infantry.push(item);
+            if (element.airforce == 1) airforce.push(item);
+            if (element.infantry == 0 && element.airforce == 0)
+                civilian.push(item);
+        });
+        pageConf.data = { infantry, airforce, civilian };
+        // fix size
+        fixTablesOfRanks(pageConf);
     }
 }
 
@@ -53,10 +79,23 @@ function loadRankToUsers(users, ranks) {
     users.forEach((element, index) => {
         if (element.idrank != null) {
             ranks.forEach((subElement) => {
-                if (element.idrank == subElement.idrank) users[index].rank = subElement.tag;
+                if (element.idrank == subElement.idrank) {
+                    users[index].rank = subElement.tag;
+                    let rankIconPath = '/image/';
+                    if (subElement.icon != null) {
+                        if (subElement.infantry == 1) rankIconPath += 'ranks/infantry/' + subElement.icon;
+                        if (subElement.airforce == 1) rankIconPath += 'ranks/airForce/' + subElement.icon;
+                        if (subElement.infantry == 0 && subElement.airforce == 0)
+                            rankIconPath += 'no-photo.png';
+                    } else {
+                        rankIconPath += 'no-photo.png';
+                    }
+                    users[index].rankIcon = rankIconPath;
+                }
             });
         } else {
             users[index].rank = 'N/A';
+            users[index].rankIcon = '/image/no-photo.png';
         }
     });
 }
@@ -84,4 +123,24 @@ function deleteEmptyTable(pageConf) {
     let newData = [];
     pageConf.data.forEach((element) => { if (element.list.length != 0) newData.push(element); });
     pageConf.data = newData;
+}
+
+function orderTableByRank(pageConf) {
+    pageConf.data.forEach((element) => {
+        var arr = element.list;
+        arr.sort((a, b) => {
+            if (a.idrank < b.idrank) return 1;
+            if (a.idrank > b.idrank) return -1;
+            return 0;
+        });
+        element.list = arr;
+    });
+}
+
+function fixTablesOfRanks(pageConf) {
+    let data = {};
+    if (pageConf.data.infantry.length != 0) data.infantry = pageConf.data.infantry;
+    if (pageConf.data.airforce.length != 0) data.airforce = pageConf.data.airforce;
+    if (pageConf.data.civilian.length != 0) data.civilian = pageConf.data.civilian;
+    pageConf.data = data;
 }

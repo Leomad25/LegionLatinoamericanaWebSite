@@ -103,11 +103,18 @@
         #content-tables .sec-table table tr {
             display: inline-flex;
             width: 100%;
+            align-items: center;
+            border-bottom: 2px solid gold;
+            padding-top: 5px;
         }
 
             #content-tables .sec-table table tr td {
-                border-bottom: 2px solid gold;
                 width: 100%;
                 font-size: 1.2rem;
                 color: white;
             }
+
+                #content-tables .sec-table table tr td img {
+                    max-height: 80px;
+                    max-width: 80px;
+                }
