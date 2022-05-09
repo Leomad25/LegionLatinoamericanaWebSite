@@ -1,0 +1,48 @@
+.ranks {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+    .ranks .item {
+        margin-top: 1em;
+        border-radius: 25px;
+        width: 90%;
+        margin-left: 5%;
+        background-color: rgb(100, 100, 100);
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        text-align: center;
+        overflow: hidden;
+    }
+
+        .ranks .item h3 {
+            text-align: right;
+            color: gold;
+            font-size: 1.5rem;
+            padding-right: 25px;
+        }
+
+        .ranks .item table {
+            width: 90%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+            .ranks .item table tr {
+                display: inline-flex;
+                width: 100%;
+                align-items: center;
+                border-bottom: 2px solid gold;
+                padding-top: 5px;
+            }
+
+                .ranks .item table tr td {
+                    width: 100%;
+                    font-size: 1.2rem;
+                    color: white;
+                }
+
+                    .ranks .item table tr td img {
+                        max-height: 80px;
+                        max-width: 80px;
+                    }

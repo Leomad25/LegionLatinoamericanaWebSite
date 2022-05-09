@@ -284,6 +284,9 @@ module.exports = {
         awards: 'Awards',
         squads: 'Squads',
         staff: 'Staff',
+        infantry: 'Infantry',
+        airforce: 'Air force',
+        civilian: 'Civilian'
     },
 
     panel: {

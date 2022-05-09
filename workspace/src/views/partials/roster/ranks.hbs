@@ -1,1 +1,45 @@
-ranks
+<link rel="stylesheet" href="/css/partials/roster/ranks.css">
+<section class="ranks">
+    {{#if pageConf.data.infantry}}
+    <section class="item">
+        <h3>{{strings.infantry}}</h3>
+        <table>
+            {{#each pageConf.data.infantry}}
+            <tr>
+                <td><img src="{{rankIcon}}"></td>
+                <td>{{tag}}</td>
+                <td>{{name}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </section>
+    {{/if}}
+    {{#if pageConf.data.airforce}}
+    <section class="item">
+        <h3>{{strings.airforce}}</h3>
+        <table>
+            {{#each pageConf.data.airforce}}
+            <tr>
+                <td><img src="{{rankIcon}}"></td>
+                <td>{{tag}}</td>
+                <td>{{name}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </section>
+    {{/if}}
+    {{#if pageConf.data.civilian}}
+    <section class="item">
+        <h3>{{strings.civilian}}</h3>
+        <table>
+            {{#each pageConf.data.civilian}}
+            <tr>
+                <td><img src="{{rankIcon}}"></td>
+                <td>{{tag}}</td>
+                <td>{{name}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </section>
+    {{/if}}
+</section>

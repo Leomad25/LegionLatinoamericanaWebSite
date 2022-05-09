@@ -56,8 +56,16 @@ async function loadData(pageConf) {
         const civilian = [];
         ranks.forEach((element) => {
             let rankIcon = '/image/'
-            if (element.infantry == 1) rankIcon += 'ranks/infantry/' + element.icon;
-            if (element.airforce == 1) rankIcon += 'ranks/airForce/' + element.icon;
+            if (element.infantry == 1) {
+                if (element.icon != null) {
+                    rankIcon += 'ranks/infantry/' + element.icon;
+                } else rankIcon += 'no-photo.png';
+            }
+            if (element.airforce == 1) {
+                if (element.icon != null) {
+                    rankIcon += 'ranks/airForce/' + element.icon;
+                } else rankIcon += 'no-photo.png';
+            }
             if (element.infantry == 0 && element.airforce == 0) rankIcon += 'no-photo.png';
             const item = {
                 rankIcon,
@@ -70,7 +78,7 @@ async function loadData(pageConf) {
                 civilian.push(item);
         });
         pageConf.data = { infantry, airforce, civilian };
-        // fix size
+        // fix table of ranks
         fixTablesOfRanks(pageConf);
     }
 }
