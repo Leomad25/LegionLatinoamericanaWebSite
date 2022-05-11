@@ -81,6 +81,12 @@ async function loadData(pageConf) {
         // fix table of ranks
         fixTablesOfRanks(pageConf);
     }
+
+    if (pageConf.filter.filter == 'awards') {
+        const result = await pool.query('SELECT logo, title, lore, `type` FROM legion_latinoamericana_website.awards WHERE `visible` = 1;');
+        fillAwards(result, pageConf);
+    }
+    /* Test line */ //console.log(pageConf);
 }
 
 function loadRankToUsers(users, ranks) {
@@ -151,4 +157,33 @@ function fixTablesOfRanks(pageConf) {
     if (pageConf.data.airforce.length != 0) data.airforce = pageConf.data.airforce;
     if (pageConf.data.civilian.length != 0) data.civilian = pageConf.data.civilian;
     pageConf.data = data;
+}
+
+function fillAwards(result, pageConf) {
+    let tables = [];
+    result.forEach((element) => { tables.push({ type: element.type, list: [] }); });
+    tables.sort((a, b) => {
+        if (a.type < b.type) return 1;
+        if (a.type > b.type) return -1;
+        return 0;
+    });
+    let temp = [];
+    tables.forEach((element, index) => {
+        if (index == 0) {
+            temp.push(element);
+        }  else {
+            if (temp[temp.length - 1].type != element.type) temp.push(element);
+        }
+    });
+    tables = temp;
+    result.forEach((element) => {
+        tables.forEach((subElement, index) => {
+            if (element.type == subElement.type) tables[index].list.push({
+                title: element.title,
+                lore: element.lore,
+                logo: '/image/awards/' + element.type + '/' + element.logo
+            });
+        });
+    });
+    pageConf.data = tables;
 }

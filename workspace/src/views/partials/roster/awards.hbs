@@ -1,1 +1,15 @@
-awards
+<link rel="stylesheet" href="/css/partials/roster/awards.css">
+<section class="awards">
+    {{#each pageConf.data}}
+    <section class="item">
+        <table>
+            {{#each list}}
+            <tr>
+                <td class="logo"><img src="{{logo}}"></td>
+                <td class="datainfo"><h3>{{title}}</h3><p>{{lore}}</p></td>
+            </tr>
+            {{/each}}
+        </table>
+    </section>
+    {{/each}}
+</section>

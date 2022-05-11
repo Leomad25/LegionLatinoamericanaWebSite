@@ -1,0 +1,56 @@
+.awards {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+    .awards .item {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+        width: calc(100% - 2rem);
+        margin-left: 1rem;
+        overflow: hidden;
+        background-color: rgb(100, 100, 100);
+        border-radius: 25px;
+    }
+
+        .awards .item table {
+            width: 90%;
+            padding-bottom: .5rem;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+            .awards .item table tr {
+                display: inline-flex;
+                width: 100%;
+                align-items: center;
+                border-bottom: 2px solid gold;
+                padding-top: 5px;
+            }
+
+                .awards .item table tr td {
+                    width: 100%;
+                }
+
+                .awards .item table tr .logo {
+                    width: 150px;
+                    border-right: 2px dotted gold;
+                }
+
+                    .awards .item table tr .logo img {
+                        width: 80%;
+                    }
+
+                    .awards .item table tr td h3 {
+                        color: gold;
+                        font-size: 1.2rem;
+                        width: 100%;
+                        text-align: right;
+                    }
+                
+                    .awards .item table tr td p {
+                        color: white;
+                        font-size: 1rem;
+                        text-align: right;
+                        padding-right: 1rem;
+                    }
