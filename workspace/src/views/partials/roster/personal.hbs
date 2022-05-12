@@ -23,16 +23,25 @@
 <script>
     const data = [];
     let list = [];
+    let awards = [];
     {{#each pageConf.data}}
     list = [];
     {{#each list}}
+    {{#each awards}}
+    awards.push({
+        award: '{{award}}',
+        amount: {{amount}}
+    });
+    {{/each}}
     list.push({
         rankUrl: '{{url}}',
         name: '{{username}}',
         rank: '{{rank}}',
         status: '{{status}}',
-        rankIcon: '{{rankIcon}}'
+        rankIcon: '{{rankIcon}}',
+        awards
     });
+    awards = [];
     {{/each}}
     data.push({squad: '{{squad}}', list});
     {{/each}}
@@ -46,6 +55,7 @@
         rankIcon: '{{rankIcon}}'
     });
     {{/each}}
+    //console.log(data);
 </script>
 <!-- Done insert data values -->
 <script src="/js/partials/roster.js"></script>

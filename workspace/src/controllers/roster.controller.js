@@ -31,6 +31,7 @@ module.exports = controller;
 async function loadData(pageConf) {
     if (pageConf.filter.filter == 'personal') {
         const users = await pool.query('SELECT users.iduser, users.username, userextras.idsquad, userextras.idrank, users.status, users.staff FROM legion_latinoamericana_website.users , legion_latinoamericana_website.userextras WHERE (userextras.iduser = users.iduser AND userextras.cbi = 1);');
+        const awards = await pool.query('SELECT * FROM legion_latinoamericana_website.awards;');
         const ranks = await pool.query('SELECT idrank, tag, infantry, airforce, icon FROM legion_latinoamericana_website.ranks;');
         const squads = await pool.query('SELECT * FROM legion_latinoamericana_website.squads;');
         pageConf.data = [];
@@ -39,8 +40,9 @@ async function loadData(pageConf) {
         squads.forEach(element => { pageConf.data.push({squad: element.name, squadId: element.idsquad, list: []}); });
         pageConf.data.push({squad: 'N.S.', squadId: -1, list: []});
         pageConf.data.push({squad: 'Reired', squadId: -2, list: []});
-        // set ranks data to users
+        // set ranks and awards to users
         loadRankToUsers(users, ranks);
+        await loadAwardsToUsers(users, awards);
         // load users to tables
         loadUsersToTables(users, pageConf);
         // delete the empty tables
@@ -112,6 +114,28 @@ function loadRankToUsers(users, ranks) {
             users[index].rankIcon = '/image/no-photo.png';
         }
     });
+}
+
+async function loadAwardsToUsers(users, awards) {
+    //users.forEach(await subFunc_loadAwardsToUsers(element, index, awards));
+    for (index = 0; index < users.length; index++) {
+        //await subFunc_loadAwardsToUsers(users[index], index, awards);
+        const element = users[index];
+        const temp = [];
+        let userAward = await pool.query('SELECT idaward, amount FROM legion_latinoamericana_website.`users-awards` WHERE iduser = ?;', [element.iduser]);
+        if (userAward.length > 0) {
+            userAward.forEach((subElement) => {
+                let tempObj = {};
+                awards.forEach((award, subIndex) => {
+                    if (award.idaward == subElement.idaward)
+                        tempObj.award = '/image/awards/' + award.type + '/' + award.logo;
+                });
+                tempObj.amount = subElement.amount;
+                temp.push(tempObj);
+            });
+        }
+        users[index].awards = temp;
+    }
 }
 
 function loadUsersToTables(users, pageConf) {
