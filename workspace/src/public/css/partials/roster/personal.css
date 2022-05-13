@@ -78,6 +78,11 @@
                 background-color: rgb(40, 40, 40);
             }
 
+#content-tables p {
+    font-size: 3rem;
+    color: white;
+}
+
 #content-tables .sec-table {
     margin-top: 1em;
     border-radius: 25px;
