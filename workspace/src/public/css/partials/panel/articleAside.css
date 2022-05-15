@@ -84,6 +84,11 @@ main .aside {
                             width: calc(100% - 48px);
                         }
 
+                            main .aside .items li .item .title h1:hover {
+                                font-size: 2.2em;
+                                text-decoration: underline;
+                            }
+
                         main .aside .items li .item .title .full {
                             width: 100%;
                         }

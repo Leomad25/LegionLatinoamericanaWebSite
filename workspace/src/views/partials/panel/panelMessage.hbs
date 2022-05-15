@@ -1,0 +1,15 @@
+{{#if panelMessage}}
+<section id="panelMessage">
+    <link rel="stylesheet" href="/css/partials/panel/panelMessage.css" type="text/css">
+    <section class="panelMessage {{panelMessage.type}}">
+        <section class="title">
+            <h2>{{panelMessage.title}}</h2>
+            <button onclick="panelMessageClose()"><img src="/image/icons/black/cancel-circle.png"></button>
+        </section>
+        <section class="body">
+            <p>{{panelMessage.message}}</p>
+        </section>
+    </section>
+    <script src="/js/partials/panel/panelMessage.js"></script>
+</section>
+{{/if}}

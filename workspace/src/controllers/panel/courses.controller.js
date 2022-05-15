@@ -6,7 +6,8 @@ module.exports = {
                 stylesheet: '/css/pages/panel.css',
                 script: '/js/pages/panel.js',
                 userExtra,
-                strings: require('../../lib/langSelector').panel(req)
+                panelMessage: require('../../lib/helpers').getPanelMessage(req),
+                strings: require('../../lib/langSelector').panelCourses(req, 0)
             });
         },
         post: async (req, res) => {

@@ -39,6 +39,31 @@ module.exports = {
         }
         return undefined;
     },
+    getPanelMessage: (req) => {
+        const flashStrings = require('./langSelector').panelMessage(req);
+        let flash = {};
+        if (req.session.flash) {
+            if (req.session.flash.panelMessageSuccess) {
+                flash.type = 'success';
+                flash.title = flashStrings.title.success;
+                flash.message = req.flash('panelMessageSuccess');
+            }
+            if (req.session.flash.panelMessageError) {
+                flash.type = 'error';
+                flash.title = flashStrings.title.error;
+                flash.message = req.flash('panelMessageError');
+            }
+            if (req.session.flash.panelMessageInfo) {
+                flash.type = 'info';
+                flash.title = flashStrings.title.info;
+                flash.message = req.flash('panelMessageInfo');
+            }
+            if (flash.type) {
+                return flash;
+            }
+        }
+        return undefined;
+    },
     validateUsername: (username) => {
         let value = true;
         var c;

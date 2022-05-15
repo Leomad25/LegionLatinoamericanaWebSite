@@ -2,6 +2,9 @@ module.exports = {
     flash: (req) => {
         if (req.session.lang === 'en') return require('../strings/flashMessages/en');
     },
+    panelMessage: (req) => {
+        if (req.session.lang === 'en') return require('../strings/panelMessages/en');
+    },
     home: (req) => {
         if (req.session.lang == 'en') {
             strings = require('../strings/pages/en').home;
@@ -44,6 +47,13 @@ module.exports = {
     },
     panel: (req) => {
         if (req.session.lang == 'en') return require('../strings/pages/en').panel;
+    },
+    panelCourses: (req, part) => {
+        if (req.session.lang == 'en') {
+            strings = require('../strings/pages/en').panel;
+            if (part == 0) strings.courses = require('../strings/pages/en').panelCourses.requestCourse;
+            return strings;
+        }
     },
     cbi: (req) => {
         if (req.session.lang == 'en') return require('../strings/pages/en').cbi;

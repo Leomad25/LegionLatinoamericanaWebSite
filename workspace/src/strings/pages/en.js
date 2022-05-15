@@ -313,5 +313,14 @@ module.exports = {
                 title: 'Clan'
             } 
         }
+    },
+
+    panelCourses: {
+        requestCourse: {
+            navBar: {
+                panel: 'Panel',
+                requestCourse: 'Courses > RequestCourse'
+            }
+        }
     }
 }

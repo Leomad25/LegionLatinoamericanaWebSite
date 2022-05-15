@@ -6,5 +6,6 @@ function closeFlash() {
     element.style.transform = 'translateX(-50%) translateY(-100%)';
     setTimeout(() => {
         element.style.display = 'none';
+        location.reload();
     }, 500);
 }
