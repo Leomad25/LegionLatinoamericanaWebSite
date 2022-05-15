@@ -10,6 +10,17 @@ main .aside {
     transform: translateX(-100%);
 }
 
+    main #aside-close-menu {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .5);
+        transform: translateX(100%);
+        transition: all .5s;
+    }
+
     main .aside .items {
         height: calc(calc(100% - 100px) - 1.6em);
         margin-top: 100px;

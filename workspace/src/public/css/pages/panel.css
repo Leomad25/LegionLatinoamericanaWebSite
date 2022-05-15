@@ -5,26 +5,6 @@ main {
     z-index: 0;
 }
 
-    main .top {
-        top: 0;
-        left: 0;
-        position: fixed;
-        width: 100%;
-        height: 94px;
-        background-color: black;
-        z-index: 3;
-        color: white;
-        border-bottom: 6px double gold;
-        display: flex;
-        align-items: center;
-    }
-
-        main .top h1 {
-            font-size: 2.5em;
-            font-style: italic;
-            margin-left: .5em;
-        }
-
     main .content {
         top: 0;
         left: 0;
