@@ -119,13 +119,13 @@ const controller = {
             const { currentPassword, role } = req.body;
             if (await matchPassword(currentPassword, req.user.password)) {
                 try {
-                    const rolesrequests = await pool.query('SELECT * FROM legion_latinoamericana_website.rolesrequests;');
-                    if (rolesrequests.length == 0) {
+                    const rolesdefaultrequests = await pool.query('SELECT * FROM legion_latinoamericana_website.rolesdefaultrequests;');
+                    if (rolesdefaultrequests.length == 0) {
                         if (await require('../lib/helpers/validateRoleRequestsEnable')(req, role)) {
                             const userExtra = await require('../lib/userExtra')(req);
                             if (userExtra.defaultrole != role) {
                                 const datetime = require('moment')().format('yyyy-MM-DD HH:mm:ss');
-                                const insert = await pool.query('INSERT INTO `legion_latinoamericana_website`.`rolesrequests` (`iduser`, `idrole`, `datetime`) VALUES (?, ?, ?);', [req.user.iduser, role, datetime]);
+                                const insert = await pool.query('INSERT INTO `legion_latinoamericana_website`.`rolesdefaultrequests` (`iduser`, `idrole`, `datetime`) VALUES (?, ?, ?);', [req.user.iduser, role, datetime]);
                                 if (insert.affectedRows > 0) {
                                     req.flash('success', flashMessage.success.yourRoleRequestHasBeenGenerated);
                                 } else {

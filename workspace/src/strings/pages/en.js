@@ -319,8 +319,20 @@ module.exports = {
         requestCourse: {
             navBar: {
                 panel: 'Panel',
-                requestCourse: 'Courses > RequestCourse'
-            }
+                requestCourse: 'Courses - RequestCourse'
+            },
+            requestCourse: 'Request courses',
+            important: 'Important:',
+            applyForAnyCourseRequirements: 'To apply for any course you need to meet all the requirements.',
+            minimumSoldierToApply: 'You need to be a minimum soldier or higher to apply for any course.',
+            whenYouRequestingACourse: 'When you requesting a course will not open directly, your request will add a pool of interested parties.',
+            recommendation: {
+                tag0: 'Recommendation. Before requesting a course, check if the course has already been published.',
+                tag1: 'Publications.'
+            },
+            coursesSelection: 'Courses selection',
+            chooseRole: '- Select a course -',
+            request: 'Request'
         }
     }
 }

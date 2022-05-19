@@ -5,6 +5,8 @@ module.exports = {
         success: 'Success'
     },
     error: {},
-    info: {},
+    info: {
+        yourRankIsIncompatibleToRequestACourse: 'Your rank is incompatible to request a course.'
+    },
     success: {}
 }

@@ -1,0 +1,190 @@
+#content {
+    padding-top: 100px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#content .body {   
+}
+
+    #content .body h2 {
+        color: gold;
+        font-size: 3rem;
+        font-style: italic;
+        padding-left: 2%;
+    }
+
+    #content .body .requirements {
+        background-color: rgba(0, 0, 0, .2);
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+
+        #content .body .requirements h3 {
+            color: gold;
+            font-style: italic;
+        }
+
+        #content .body .requirements p {
+            color: white;
+            padding-left: 1rem;
+        }
+
+            #content .body .requirements p a {
+                color: gold;
+                padding-left: 1rem;
+                font-style: italic;
+                cursor: pointer;
+            }
+
+    #content .inside .courses-selection {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+        #content .inside .courses-selection form {
+            background-color: rgba(0, 0, 0, .5);
+            width: 100%;
+            max-width: 800px;
+            display: inline-block;
+            border-radius: 25px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+            #content .inside .courses-selection form h3 {
+                color: gold;
+                font-size: 2rem;
+                font-style: italic;
+                margin-bottom: 1rem;
+            }
+
+            #content .inside .courses-selection form .options {
+                margin-bottom: 1rem;
+                width: 100%;
+                background-color: rgba(0, 0, 0, .2);
+            }
+
+                #content .inside .courses-selection form .options .courses-selected {
+                    width: 80%;
+                    margin-left: 10%;
+                    display: block;
+                    border-bottom: 2px solid gold;
+                    background-color: rgb(10, 10, 10);
+                }
+
+                    #content .inside .courses-selection form .options .courses-selected:hover {
+                        background-color: rgb(25, 25, 25);
+                    }
+
+                    #content .inside .courses-selection form .options .courses-selected input {
+                        font-size: 1.4rem;
+                        padding-top: .5rem;
+                        padding-bottom: .5rem;
+                        text-align: center;
+                        width: 100%;
+                        background-color: rgba(0, 0, 0, 0);
+                        border: 0;
+                        cursor: pointer;
+                        position: relative;
+                        color: white;
+                    }
+
+                #content .inside .courses-selection form .options .deploy-menu {
+                    width: 80%;
+                    margin-left: 10%;
+                    display: block;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: all 1s;
+                    overflow-y: auto;
+                    background-color: rgb(50, 50, 50);
+                }
+
+                    #content .inside .courses-selection form .options .deploy-menu::-webkit-scrollbar {
+                        width: 1rem;
+                        background: gray;
+                    }
+
+                    #content .inside .courses-selection form .options .deploy-menu::-webkit-scrollbar-thumb {
+                        background: gold;
+                    }
+
+                    #content .inside .courses-selection form .options .deploy-menu .item-course p {
+                        font-size: 1.4rem;
+                        padding-top: .5rem;
+                        padding-bottom: .5rem;
+                        text-align: center;
+                        width: 100%;
+                        border: 0;
+                        cursor: pointer;
+                        color: white;
+                    }
+
+                    #content .inside .courses-selection form .options .deploy-menu .item-course p:hover {
+                        background-color: rgba(0, 0, 0, .2);
+                    }
+
+            #content .inside .courses-selection form .requirements {
+                margin-bottom: 1rem;
+                width: 100%;
+                background-color: rgba(0, 0, 0, .2);
+            }
+
+                #content .inside .courses-selection form .requirements {
+                    margin-bottom: 1rem;
+                    width: 100%;
+                    background-color: rgba(200, 200, 200, .1);
+                }
+
+                    #content .inside .courses-selection form .requirements .lines {
+                        margin-bottom: .5rem;
+                        width: 100%;
+                        background-color: rgba(0, 0, 0, .4);
+                    }
+
+                        #content .inside .courses-selection form .requirements .lines p {
+                            font-size: 1.4rem;
+                            color: white;
+                            font-style: italic;
+                        }
+
+                    #content .inside .courses-selection form .requirements ul {
+                        background-color: rgba(0, 0, 0, .4);
+                        width: 100%;
+                        list-style: none;
+                        display: flex-block;
+                        text-align: center;
+                        padding-top: .8rem;
+                        padding-bottom: .8rem;
+                    }
+
+                        #content .inside .courses-selection form .requirements ul li {
+                            background-color: white;
+                            color: black;
+                            font-size: 1.4rem;
+                            display: inline-flex;
+                            padding: .5rem;
+                            margin-left: .4rem;
+                            margin-right: .4rem;
+                            border-radius: 25px;
+                        }
+
+            #content .inside .courses-selection form button {
+                width: 70%;
+                font-size: 1.2rem;
+                background-color: black;
+                color: white;
+                border: 4px solid gold;
+                border-radius: 25px;
+                padding-top: .5rem;
+                padding-bottom: .5rem;
+                cursor: pointer;
+                transition: all .5s;
+            }
+
+                #content .inside .courses-selection form button:hover {
+                    width: 80%;
+                    font-size: 1.4rem;
+                    background-color: rgb(40, 40, 40);
+                }

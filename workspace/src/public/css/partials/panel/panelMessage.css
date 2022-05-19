@@ -13,7 +13,6 @@
 #panelMessage .panelMessage {
     padding: .8rem;
     border-radius: 25px;
-    margin-bottom: .8rem;
     overflow: hidden;
     transition: all 0.5s;
     height: auto;

@@ -2,11 +2,61 @@
 {{>panel/articleAside}}
 <article class="content" id="content">
     <section class="inside">
-        {{>panel/panelMessage}}
         <section class="navBar">
             <p onclick="window.location.href = '/panel'">{{strings.courses.navBar.panel}}</p>
-            <span>></span>
+            <span>/</span>
             <p onclick="window.location.href = '/panel/courses/requestCourse'">{{strings.courses.navBar.requestCourse}}</p>
+        </section>
+        {{>panel/panelMessage}}
+        <section class="body">
+            <h2>{{strings.courses.requestCourse}}</h2>
+            <section class="requirements">
+                <h3>{{strings.courses.important}}</h3>
+                <p>{{strings.courses.applyForAnyCourseRequirements}}</p>
+                <p>{{strings.courses.minimumSoldierToApply}}</p>
+                <p>{{strings.courses.whenYouRequestingACourse}}</p>
+                <P>{{strings.courses.recommendation.tag0}}<a href="/panel/courses/schedule">{{strings.courses.recommendation.tag1}}</a></P>
+            </section>
+        </section>
+        <section class="courses-selection">
+            <form action="/panel/courses/requestCourse" method="post">
+                <h3>{{strings.courses.coursesSelection}}</h3>
+                <section class="options">
+                    <section class="courses-selected" onclick="openMenuCurses()">
+                        <input type="text" value="{{strings.courses.chooseRole}}" id="courses-selected-input" readonly>
+                    </section>
+                    <section class="deploy-menu" id="deploy-menu">
+                        {{#each pageConf.roles}}
+                        <section class="item-course" id="item-course-{{idrole}}" onclick="coursesSelected({{idrole}});">
+                            <p>{{tag}}</p>
+                        </section>
+                        {{/each}}
+                    </section>
+                </section>
+                <section class="requirements">
+                    {{#each pageConf.roles}}
+                    <section class="requirement-card" id="requirement-card-{{idrole}}" style="display: none">
+                        {{#if lines}}
+                        <section class="lines">
+                            {{#each lines}}
+                            <p>{{this}}</p>
+                            {{/each}}
+                        </section>
+                        {{/if}}
+                        {{#if courses}}
+                        <section class="prerequisites">
+                            <ul>
+                            {{#each courses}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                        </section>
+                        {{/if}}
+                    </section>
+                    {{/each}}
+                </section>
+                <button type="submit">{{strings.courses.request}}</button>
+            </form>
         </section>
     </section>
 </article>
