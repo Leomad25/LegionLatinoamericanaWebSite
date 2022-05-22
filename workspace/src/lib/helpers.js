@@ -43,6 +43,11 @@ module.exports = {
         const flashStrings = require('./langSelector').panelMessage(req);
         let flash = {};
         if (req.session.flash) {
+            if (req.session.flash.panelMessageInfo) {
+                flash.type = 'info';
+                flash.title = flashStrings.title.info;
+                flash.message = req.flash('panelMessageInfo');
+            }
             if (req.session.flash.panelMessageSuccess) {
                 flash.type = 'success';
                 flash.title = flashStrings.title.success;
@@ -52,11 +57,6 @@ module.exports = {
                 flash.type = 'error';
                 flash.title = flashStrings.title.error;
                 flash.message = req.flash('panelMessageError');
-            }
-            if (req.session.flash.panelMessageInfo) {
-                flash.type = 'info';
-                flash.title = flashStrings.title.info;
-                flash.message = req.flash('panelMessageInfo');
             }
             if (flash.type) {
                 return flash;

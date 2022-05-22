@@ -23,7 +23,7 @@
                 <h3>{{strings.courses.coursesSelection}}</h3>
                 <section class="options">
                     <section class="courses-selected" onclick="openMenuCurses()">
-                        <input type="text" value="{{strings.courses.chooseRole}}" id="courses-selected-input" readonly>
+                        <input type="text" name="coursesSelected" value="{{strings.courses.chooseRole}}" id="courses-selected-input" readonly>
                     </section>
                     <section class="deploy-menu" id="deploy-menu">
                         {{#each pageConf.roles}}
@@ -58,5 +58,20 @@
                 <button type="submit">{{strings.courses.request}}</button>
             </form>
         </section>
+        {{#if pageConf.listed}}
+        <section class="coursesListed">
+            <h3>{{strings.courses.coursesRequired}}</h3>
+            <ul>
+                {{#each pageConf.listed}}
+                <li><p>{{this}}</p></li>
+                {{/each}}
+            </ul>
+        </section>
+        {{else}}
+        <section class="coursesListed empty">
+            <h3>{{strings.courses.coursesRequired}}</h3>
+            <p>{{strings.courses.notCoursesRequired}}</p>
+        </section>
+        {{/if}}
     </section>
 </article>

@@ -17,5 +17,7 @@ router.get('/cbi', isLoggedIn, isActivated, getCbi);
     router.get('/courses/administration', isLoggedIn, isActivated, courses.administration.get);
 
 // POST routes
+    // courses
+    router.post('/courses/requestCourse', isLoggedIn, isActivated, courses.requestCourse.post);
 
 module.exports = router;

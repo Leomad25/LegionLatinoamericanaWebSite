@@ -332,7 +332,9 @@ module.exports = {
             },
             coursesSelection: 'Courses selection',
             chooseRole: '- Select a course -',
-            request: 'Request'
+            request: 'Request',
+            coursesRequired: 'Courses required',
+            notCoursesRequired: 'No courses requested yet.'
         }
     }
 }

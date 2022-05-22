@@ -88,6 +88,7 @@
                         cursor: pointer;
                         position: relative;
                         color: white;
+                        text-transform: capitalize;
                     }
 
                 #content .inside .courses-selection form .options .deploy-menu {
@@ -115,6 +116,7 @@
                         padding-top: .5rem;
                         padding-bottom: .5rem;
                         text-align: center;
+                        text-transform: capitalize;
                         width: 100%;
                         border: 0;
                         cursor: pointer;
@@ -188,3 +190,44 @@
                     font-size: 1.4rem;
                     background-color: rgb(40, 40, 40);
                 }
+
+    #content .inside .coursesListed {
+        background-color: rgba(0, 0, 0, .3);
+        margin-top: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-radius: 5px;
+    }
+
+        #content .inside .coursesListed h3 {
+            color: gold;
+            font-size: 2rem;
+            margin-bottom: .5rem;
+            font-style: italic;
+            text-align: center;
+        }
+
+        #content .inside .coursesListed ul {
+            width: 100%;
+            text-align: center;
+        }
+
+            #content .inside .coursesListed ul li {
+                display: inline-block;
+                margin-left: .2rem;
+                margin-right: .2rem;
+                
+            }
+
+                #content .inside .coursesListed ul li p {
+                    background-color: white;
+                    padding: .5rem 1rem .5rem 1em;
+                    border-radius: 25px;
+                    text-transform: capitalize;
+                }
+
+        #content .inside .empty p {
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
