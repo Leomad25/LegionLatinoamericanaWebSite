@@ -319,7 +319,8 @@ module.exports = {
         requestCourse: {
             navBar: {
                 panel: 'Panel',
-                requestCourse: 'Courses - RequestCourse'
+                requestCourse: 'Courses - RequestCourse',
+                administration: 'Courses - Administration'
             },
             requestCourse: 'Request courses',
             important: 'Important:',

@@ -31,24 +31,19 @@ module.exports = {
         }
     },
     schedule: {
-        get: async (req, res) => {
-            const userExtra = await require('../../lib/userExtra')(req);
-            res.render('pages/panel', {
-                stylesheet: '/css/pages/panel.css',
-                script: '/js/pages/panel.js',
-                userExtra,
-                strings: require('../../lib/langSelector').panel(req)
-            });
-        }
+        get: async (req, res) => {}
     },
     administration: {
         get:  async (req, res) => {
             const userExtra = await require('../../lib/userExtra')(req);
-            res.render('pages/panel', {
-                stylesheet: '/css/pages/panel.css',
-                script: '/js/pages/panel.js',
-                userExtra,
-                strings: require('../../lib/langSelector').panel(req)
+            res.render('pages/panel/courses/administration', {
+                stylesheet: '/css/pages/panel/courses/administration.css',
+                script: '/js/pages/panel/courses/administration.js',
+                userExtra, pageConf: {
+                    
+                },
+                panelMessage: require('../../lib/helpers').getPanelMessage(req),
+                strings: require('../../lib/langSelector').panelCourses(req, 0)
             });
         },
         post: async (req, res) => {

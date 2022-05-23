@@ -15,7 +15,7 @@ module.exports = {
         }
     },
 
-    async isActivated(req, res, next) {
+    isActivated(req, res, next) {
         if (req.user.activated == true) {
             return next();
         } else {
@@ -23,11 +23,22 @@ module.exports = {
         }
     },
 
-    async isNotActivated(req, res, next) {
+    isNotActivated(req, res, next) {
         if (req.user.activated == false) {
             return next();
         } else {
             return res.redirect('/')
+        }
+    },
+
+    async isCoursesAdmin(req, res, next) {
+        const pool = require('../database');
+        const instructors = await pool.query('SELECT * FROM legion_latinoamericana_website.instructors WHERE `iduser` = ?;', [req.user.iduser]);
+        if (req.user.permissions == 5 || req.user.permissions == 9 || instructors.length > 0) {
+            return next();
+        } else {
+            req.flash('panelMessageError', require('../lib/langSelector').panelMessage(req).error.youDoNotHaveThePermissionsToAccessThisAddress);
+            return res.redirect('/panel');
         }
     }
 }

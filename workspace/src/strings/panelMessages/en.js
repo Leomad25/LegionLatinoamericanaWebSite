@@ -5,6 +5,9 @@ module.exports = {
         success: 'Success'
     },
     error: {
+        // General
+        youDoNotHaveThePermissionsToAccessThisAddress: 'You do not have the permissions to access this address.',
+        // RequestCourse
         yourRankIsBlacklisted: 'Your rank is blacklisted.',
         theRoleYouAreTryingToApplyToIsInvalid: 'The role you are trying to apply to is invalid.',
         youAlreadyHaveTheMaximumLimitOfRequests: 'You already have the maximum limit of requests.',

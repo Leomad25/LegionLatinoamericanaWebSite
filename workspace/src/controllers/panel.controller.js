@@ -7,6 +7,7 @@ const controller = {
             stylesheet: '/css/pages/panel.css',
             script: '/js/pages/panel.js',
             userExtra,
+            panelMessage: require('../lib/helpers').getPanelMessage(req),
             strings: require('../lib/langSelector').panel(req)
         });
     },
