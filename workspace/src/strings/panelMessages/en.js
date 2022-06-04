@@ -12,7 +12,8 @@ module.exports = {
         theRoleYouAreTryingToApplyToIsInvalid: 'The role you are trying to apply to is invalid.',
         youAlreadyHaveTheMaximumLimitOfRequests: 'You already have the maximum limit of requests.',
         youAlreadyHaveAnApplicationToThisCourse: 'You already have an application to this course.',
-        anErrorOccurredWhileSavingYourRequest: 'An error occurred while saving your request.'
+        anErrorOccurredWhileSavingYourRequest: 'An error occurred while saving your request.',
+        youDoNotMeetAllTheNecessaryRequirements: 'You do not meet all the necessary requirements'
     },
     info: {
         yourRankIsIncompatibleToRequestACourse: 'Your rank is incompatible to request a course.'

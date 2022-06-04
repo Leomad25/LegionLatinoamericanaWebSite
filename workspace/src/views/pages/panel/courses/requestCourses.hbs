@@ -36,20 +36,11 @@
                 <section class="requirements">
                     {{#each pageConf.roles}}
                     <section class="requirement-card" id="requirement-card-{{idrole}}" style="display: none">
-                        {{#if lines}}
-                        <section class="lines">
-                            {{#each lines}}
-                            <p>{{this}}</p>
-                            {{/each}}
-                        </section>
-                        {{/if}}
                         {{#if courses}}
                         <section class="prerequisites">
                             <ul>
-                            {{#each courses}}
-                            <li>{{this}}</li>
-                            {{/each}}
-                        </ul>
+                                {{#each courses}}<li>{{this}}</li>{{/each}}
+                            </ul>
                         </section>
                         {{/if}}
                     </section>

@@ -113,6 +113,22 @@
                             <li onclick="formRoleSelected({{id}})">
                                 <span class="id" style="display: none;">{{id}}</span>
                                 <span class="name">{{name}}</span>
+                                <span class="content" style="display: none;">
+                                    <span class="adminLock">{{adminLock}}</span>
+                                    <span class="request">{{request}}</span>
+                                    <span class="Prerequisite">
+                                        <ul class="texts">
+                                            {{#each prerequisites.texts}}
+                                            <li>{{this}}</li>
+                                            {{/each}}
+                                        </ul>
+                                        <ul class="roles">
+                                            {{#each prerequisites.roles}}
+                                            <li>{{this}}</li>
+                                            {{/each}}
+                                        </ul>
+                                    </span>
+                                </span>
                             </li>
                             {{/each}}
                         </ul>
@@ -124,7 +140,7 @@
                 <section class="panels" id="forms-panels" style="display: none;">
                     <section class="enableRequest" id="forms-enableRequest">
                         <h3 onclick="openFormsMenu(0)">{{strings.administration.fomrs.roleRequest.allowRoleRequest}}</h3>
-                        <form action="/panel/courses/administration/roleRequest" class="close">
+                        <form action="/panel/courses/administration/roleRequest" method="POST" class="close">
                             <input type="text" name="roleSelector" class="input-roleSelector" style="display: none;">
                             <section class="status">
                                 <p>{{strings.administration.fomrs.roleRequest.status}}</p>
@@ -147,14 +163,14 @@
                     </section>
                     <section class="prerequisite" id="forms-prerequisites">
                         <h3 onclick="openFormsMenu(1)">{{strings.administration.fomrs.prerequisite.prerequisite}}</h3>
-                        <form action="/panel/courses/administration/prerequisite" class="close">
+                        <form action="/panel/courses/administration/prerequisite" method="POST" class="close">
 
                             <button type="submit">{{strings.administration.fomrs.roleRequest.update}}</button>
                         </form>
                     </section>
                     <section class="openCurse" id="form-openCurse">
                         <h3 onclick="openFormsMenu(2)">{{strings.administration.fomrs.openCourse.openCourses}}</h3>
-                        <form action="/panel/courses/administration/openCourse" class="close">
+                        <form action="/panel/courses/administration/openCourse" method="POST" class="close">
 
                             <button type="submit">{{strings.administration.fomrs.roleRequest.update}}</button>
                         </form>

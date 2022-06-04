@@ -218,6 +218,7 @@ CREATE TABLE `roles` (
   `name` varchar(150) NOT NULL,
   `description` longtext,
   `request` tinyint NOT NULL DEFAULT '0',
+  `adminlock` tinyint DEFAULT '0',
   PRIMARY KEY (`idrole`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -228,7 +229,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'fusilero',NULL,1),(2,'granadero',NULL,1),(3,'medico',NULL,1),(4,'antitanque / antiaereo',NULL,1);
+INSERT INTO `roles` VALUES (1,'fusilero',NULL,0,1),(2,'granadero',NULL,1,1),(3,'medico',NULL,1,0),(4,'antitanque / antiaereo',NULL,1,0);
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,7 +257,6 @@ CREATE TABLE `roles-users-requests` (
 
 LOCK TABLES `roles-users-requests` WRITE;
 /*!40000 ALTER TABLE `roles-users-requests` DISABLE KEYS */;
-INSERT INTO `roles-users-requests` VALUES (1,2,'2022-06-03 03:26:15'),(2,2,'2022-06-04 04:53:53'),(4,2,'2022-06-04 04:53:59'),(3,1,'2022-06-04 05:44:00'),(2,1,'2022-06-04 05:44:44');
 /*!40000 ALTER TABLE `roles-users-requests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,6 +283,7 @@ CREATE TABLE `rolesrequests` (
 
 LOCK TABLES `rolesrequests` WRITE;
 /*!40000 ALTER TABLE `rolesrequests` DISABLE KEYS */;
+INSERT INTO `rolesrequests` VALUES (4,1);
 /*!40000 ALTER TABLE `rolesrequests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -536,7 +537,6 @@ CREATE TABLE `users-roles` (
 
 LOCK TABLES `users-roles` WRITE;
 /*!40000 ALTER TABLE `users-roles` DISABLE KEYS */;
-INSERT INTO `users-roles` VALUES (1,1);
 /*!40000 ALTER TABLE `users-roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -549,4 +549,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-04  6:24:47
+-- Dump completed on 2022-06-04  9:50:59

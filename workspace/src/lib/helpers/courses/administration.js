@@ -93,14 +93,17 @@ async function requestCourseTables(req, opt) {
 
 async function roleForFroms(req, arr) {
     const user = req.user;
-    let roles = [];
+    let roles = [], rolesrequests = [];
     if (user.permissions == 5 || user.permissions == 9) {
         roles = await pool.query('SELECT * FROM legion_latinoamericana_website.roles;');
+        rolesrequests = await pool.query('SELECT * FROM legion_latinoamericana_website.rolesrequests;');
     } else {
         const instructors = await pool.query('SELECT * FROM legion_latinoamericana_website.instructors WHERE (iduser = ?);', [req.user.iduser]);
         if (instructors.length > 0) for (let instructor of instructors) {
             roles_db = await pool.query('SELECT idrole, name FROM legion_latinoamericana_website.roles WHERE (idrole = ?);', [instructor.idrole]);
             if (roles_db.length > 0) roles_db.forEach(element => { roles.push(element); });
+            rolesrequests_db = await pool.query('SELECT * FROM legion_latinoamericana_website.rolesrequests WHERE (idrole = ?);', [instructor.idrole]);
+            if (rolesrequests_db.length > 0) rolesRequests_db.forEach(element => { rolesrequests.push(element); });
         };
     }
     if (roles.length > 0) roles.forEach(element => {
@@ -108,12 +111,14 @@ async function roleForFroms(req, arr) {
         const name = element.name;
         let request = false;
         if (element.request == 1) request = true;
-        let adminBlock = false; 
-        if (element.adminblock == 1) adminBlock = true;
+        let adminLock = false; 
+        if (element.adminlock == 1) adminLock = true;
         const prerequisites = {
             texts: [],
             roles: []
         };
-        arr.push({id, name, request, adminBlock, prerequisites});
+
+        arr.push({id, name, adminLock, request, prerequisites});
     });
+    console.log(arr);
 }

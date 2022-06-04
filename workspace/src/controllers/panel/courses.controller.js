@@ -20,9 +20,11 @@ module.exports = {
                 if (await require('../../lib/helpers/courses/requestCourse').isRoleNameValid(coursesSelected)) {
                     if (await require('../../lib/helpers/courses/requestCourse').isInsideToLimitOfRequestCourse(req.user.iduser)) {
                         if (await require('../../lib/helpers/courses/requestCourse').isNotRepliedRequest(req.user.iduser, coursesSelected)) {
-                            if (await require('../../lib/helpers/courses/requestCourse').addRequestToDatabase(req.user.iduser, coursesSelected)) {
-                                req.flash('panelMessageSuccess', flashMessage.success.yourRequestHasBeenCreated);
-                            } else req.flash('panelMessageError', flashMessage.error.anErrorOccurredWhileSavingYourRequest);
+                            if (await require('../../lib/helpers/courses/requestCourse').isValidRequirements(req.user.iduser, coursesSelected)) {
+                                if (await require('../../lib/helpers/courses/requestCourse').addRequestToDatabase(req.user.iduser, coursesSelected)) {
+                                    req.flash('panelMessageSuccess', flashMessage.success.yourRequestHasBeenCreated);
+                                } else req.flash('panelMessageError', flashMessage.error.anErrorOccurredWhileSavingYourRequest);
+                            } else req.flash('panelMessageError', flashMessage.error.youDoNotMeetAllTheNecessaryRequirements);
                         } else req.flash('panelMessageError', flashMessage.error.youAlreadyHaveAnApplicationToThisCourse);
                     } else req.flash('panelMessageError', flashMessage.error.youAlreadyHaveTheMaximumLimitOfRequests);
                 } else req.flash('panelMessageError', flashMessage.error.theRoleYouAreTryingToApplyToIsInvalid);
@@ -48,7 +50,7 @@ module.exports = {
             });
         },
         post: async (req, res) => {
-
+            console.log(req.params);
         }
     }
 }

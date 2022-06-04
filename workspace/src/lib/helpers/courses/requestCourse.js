@@ -10,12 +10,14 @@ module.exports = {
             return [];
         }
         // check role if permitted to select
-        const roles = await pool.query('SELECT * FROM legion_latinoamericana_website.roles WHERE request=1;');
+        const rolesFilter = [];
+        const roles = await pool.query('SELECT * FROM legion_latinoamericana_website.roles;');
         const rolesListed = await pool.query('SELECT * FROM legion_latinoamericana_website.`roles-users-requests` WHERE `iduser` = ?;', [req.user.iduser]);
         const user_roles = await pool.query('SELECT * FROM legion_latinoamericana_website.`users-roles` WHERE iduser=?;', [req.user.iduser]);
         const rolesRequests = await pool.query('SELECT * FROM legion_latinoamericana_website.rolesrequests ORDER BY idrole, rolerequest ASC;');
         var isDuplicate;
-        for (let role of roles) {
+        if (roles.length > 0) roles.forEach(element => { if (element.request == 1) rolesFilter.push(element); });
+        for (let role of rolesFilter) {
             if (isRoleListed(role.idrole, rolesListed)) continue;
             isDuplicate = false;
             for (let userRole of user_roles) if (role.idrole == userRole.idrole) isDuplicate = true;
@@ -59,6 +61,20 @@ module.exports = {
         const row = (await pool.query('SELECT * FROM legion_latinoamericana_website.`roles-users-requests` WHERE (`iduser` = ?) AND (`idrole` = ?);', [iduser, idrole])).length;
         if (row == 0) return true;
         return false;
+    },
+    isValidRequirements: async (iduser, coursesSelected) => {
+        const idrole = (await pool.query('SELECT idrole FROM legion_latinoamericana_website.roles WHERE `name` = ?;', [coursesSelected]))[0].idrole;
+        const required = await pool.query('SELECT * FROM legion_latinoamericana_website.rolesrequests WHERE (`idrole` = ?);', [idrole]);
+        if (required.length == 0) return true;
+        const approved = await pool.query('SELECT * FROM legion_latinoamericana_website.`users-roles` WHERE (`iduser` = ?);', [iduser]);
+        if (approved.length == 0) return false;
+        var cicle;
+        for (let element of required) {
+            cicle = false;
+            approved.forEach(subElement => { if (element.rolerequest == subElement.idrole) cicle = true; });
+            if (!cicle) return false;
+        }
+        return true;
     },
     addRequestToDatabase: async (iduser, coursesSelected) => {
         const idrole = (await pool.query('SELECT idrole FROM legion_latinoamericana_website.roles WHERE `name` = ?;', [coursesSelected]))[0].idrole;
