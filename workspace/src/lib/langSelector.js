@@ -52,6 +52,7 @@ module.exports = {
         if (req.session.lang == 'en') {
             strings = require('../strings/pages/en').panel;
             if (part == 0) strings.courses = require('../strings/pages/en').panelCourses.requestCourse;
+            if (part == 2) strings.administration = require('../strings/pages/en').panelCourses.administration;
             return strings;
         }
     },

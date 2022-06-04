@@ -319,8 +319,7 @@ module.exports = {
         requestCourse: {
             navBar: {
                 panel: 'Panel',
-                requestCourse: 'Courses - RequestCourse',
-                administration: 'Courses - Administration'
+                requestCourse: 'Courses - RequestCourse'
             },
             requestCourse: 'Request courses',
             important: 'Important:',
@@ -336,6 +335,66 @@ module.exports = {
             request: 'Request',
             coursesRequired: 'Courses required',
             notCoursesRequired: 'No courses requested yet.'
+        },
+        administration: {
+            navBar: {
+                panel: 'Panel',
+                administration: 'Courses - Administration'
+            },
+            administration: 'Administration',
+            requestList: {
+                filter: 'Filter',
+                filterByRoleName: 'Filter by role name',
+                filterByUsername: 'Filter by user name',
+                orderBy: 'Order by',
+                courseRequests: 'Request list',
+                generalList: 'General list',
+                specificList: 'Specific list',
+                id: 'Id',
+                name: 'Name',
+                requests: 'Requests',
+                role: 'Role: ',
+                user: 'User',
+                roleTag: 'Role',
+                date: 'Date',
+                deployTable: 'Deploy table',
+                hideTable: 'Hide table',
+            },
+            fomrs: {
+                forms: 'Forms',
+                roleSelector: 'Role selector:',
+                roleNotSelect: 'Role not selected',
+                youHaveNoRolesToSelect: 'You don\'t have roles to select.',
+                roleRequest: {
+                    allowRoleRequest: 'Allow role request',
+                    status: 'Status:',
+                    adminLock: 'Admin lock:',
+                    actived: 'Actived',
+                    disabled: 'Disabled',
+                    update: 'Update'
+                },
+                prerequisite: {
+                    prerequisite: 'Prerequisite',
+                    thisRoleDontHavePrequest: 'This role don\'t have prequest.',
+                    planeText: 'Plane text',
+                    addPlaneText: 'Add plane text',
+                    selectRole: 'Select role',
+                    addPrerole: 'Add prerole'
+                },
+                openCourse: {
+                    openCourses: 'Open courses',
+                    switch: {
+                        on: 'On',
+                        off: 'Off'
+                    },
+                    enablePlatformSpace: 'Enable platform space',
+                    limitedQuotas: {
+                        enableLimitedQuotas: 'Enable limited quotas',
+                        setValue: 'Set value: '
+                    },
+                    publish: 'Publish'
+                }
+            }
         }
     }
 }

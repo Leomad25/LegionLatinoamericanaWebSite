@@ -6,8 +6,8 @@ module.exports = {
                 stylesheet: '/css/pages/panel/courses/requestCourse.css',
                 script: '/js/pages/panel/courses/requestCourse.js',
                 userExtra, pageConf: {
-                    roles: await require('../../lib/helpers/requestCourse').getRolesToRequest(req, userExtra),
-                    listed: await require('../../lib/helpers/requestCourse').getRolesListed(req)
+                    roles: await require('../../lib/helpers/courses/requestCourse').getRolesToRequest(req, userExtra),
+                    listed: await require('../../lib/helpers/courses/requestCourse').getRolesListed(req)
                 },
                 panelMessage: require('../../lib/helpers').getPanelMessage(req),
                 strings: require('../../lib/langSelector').panelCourses(req, 0)
@@ -15,12 +15,12 @@ module.exports = {
         },
         post: async (req, res) => {
             const flashMessage = require('../../lib/langSelector').panelMessage(req);
-            if (await require('../../lib/helpers/requestCourse').isCheckRankOnBlackList( (await require('../../lib/userExtra')(req)).idrank)) {
+            if (await require('../../lib/helpers/courses/requestCourse').isCheckRankOnBlackList( (await require('../../lib/userExtra')(req)).idrank)) {
                 const { coursesSelected } = req.body;
-                if (await require('../../lib/helpers/requestCourse').isRoleNameValid(coursesSelected)) {
-                    if (await require('../../lib/helpers/requestCourse').isInsideToLimitOfRequestCourse(req.user.iduser)) {
-                        if (await require('../../lib/helpers/requestCourse').isNotRepliedRequest(req.user.iduser, coursesSelected)) {
-                            if (await require('../../lib/helpers/requestCourse').addRequestToDatabase(req.user.iduser, coursesSelected)) {
+                if (await require('../../lib/helpers/courses/requestCourse').isRoleNameValid(coursesSelected)) {
+                    if (await require('../../lib/helpers/courses/requestCourse').isInsideToLimitOfRequestCourse(req.user.iduser)) {
+                        if (await require('../../lib/helpers/courses/requestCourse').isNotRepliedRequest(req.user.iduser, coursesSelected)) {
+                            if (await require('../../lib/helpers/courses/requestCourse').addRequestToDatabase(req.user.iduser, coursesSelected)) {
                                 req.flash('panelMessageSuccess', flashMessage.success.yourRequestHasBeenCreated);
                             } else req.flash('panelMessageError', flashMessage.error.anErrorOccurredWhileSavingYourRequest);
                         } else req.flash('panelMessageError', flashMessage.error.youAlreadyHaveAnApplicationToThisCourse);
@@ -40,10 +40,11 @@ module.exports = {
                 stylesheet: '/css/pages/panel/courses/administration.css',
                 script: '/js/pages/panel/courses/administration.js',
                 userExtra, pageConf: {
-                    
+                    requestCourse: await require('../../lib/helpers/courses/administration').getRequestCourseTables(req),
+                    forms: await require('../../lib/helpers/courses/administration').getFroms(req)
                 },
                 panelMessage: require('../../lib/helpers').getPanelMessage(req),
-                strings: require('../../lib/langSelector').panelCourses(req, 0)
+                strings: require('../../lib/langSelector').panelCourses(req, 2)
             });
         },
         post: async (req, res) => {

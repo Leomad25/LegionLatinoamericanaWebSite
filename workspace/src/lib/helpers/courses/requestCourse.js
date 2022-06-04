@@ -1,4 +1,4 @@
-const pool = require('../../database');
+const pool = require('../../../database');
 
 module.exports = {
     getRolesToRequest: async (req, userExtra) => {
@@ -6,7 +6,7 @@ module.exports = {
         // rank permitted check
         const rank_blackList = await pool.query('SELECT * FROM legion_latinoamericana_website.`rolesrequests-blacklist`;');
         for (let bl_elment of rank_blackList) if (userExtra.idrank == bl_elment.idrank) {
-            req.flash('panelMessageInfo', require('../../lib/langSelector').panelMessage(req).info.yourRankIsIncompatibleToRequestACourse);
+            req.flash('panelMessageInfo', require('../../langSelector').panelMessage(req).info.yourRankIsIncompatibleToRequestACourse);
             return [];
         }
         // check role if permitted to select
@@ -62,7 +62,8 @@ module.exports = {
     },
     addRequestToDatabase: async (iduser, coursesSelected) => {
         const idrole = (await pool.query('SELECT idrole FROM legion_latinoamericana_website.roles WHERE `name` = ?;', [coursesSelected]))[0].idrole;
-        const insert = await pool.query('INSERT INTO legion_latinoamericana_website.`roles-users-requests` (`iduser`, `idrole`) VALUES (?, ?);', [iduser, idrole]);
+        const datetime = require('moment')().format('yyyy-MM-DD HH:mm:ss');
+        const insert = await pool.query('INSERT INTO legion_latinoamericana_website.`roles-users-requests` (`iduser`, `idrole`, `datetime`) VALUES (?, ?, ?);', [iduser, idrole, datetime]);
         if (insert.affectedRows > 0) return true;
         return false;
     },
@@ -70,9 +71,9 @@ module.exports = {
         let arr = [];
         const rolesListed = await pool.query('SELECT * FROM legion_latinoamericana_website.`roles-users-requests` WHERE `iduser` = ?;', [req.user.iduser]);
         const roles = await pool.query('SELECT * FROM legion_latinoamericana_website.roles;');
-        for (let role of roles) {
-            for (let listed of rolesListed) if (role.idrole == listed.idrole) arr.push(role.name);
-        }
+        for (let role of roles)
+            for (let listed of rolesListed)
+                if (role.idrole == listed.idrole) arr.push(role.name);
         if (arr.length == 0) return undefined;
         return arr;
     }
@@ -83,7 +84,6 @@ function roleRequest(idrole, rolesRequests, roles) {
     rolesRequests.forEach((element) => {
         if (element.idrole == idrole) arr.push(element);
     });
-    //await deleteRoleRequest(idrole)
     const obj = {lines: [], courses: []};
     arr.forEach((element) => {
         if (element.rolerequest == null) {
