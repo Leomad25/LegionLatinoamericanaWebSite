@@ -311,7 +311,8 @@ module.exports = {
             permissions: 'Permissions', /* Permissions */
             clan: { /* Clan */
                 title: 'Clan'
-            } 
+            } ,
+            logout: 'Log out'
         }
     },
 
@@ -375,11 +376,8 @@ module.exports = {
                 },
                 prerequisite: {
                     prerequisite: 'Prerequisite',
-                    thisRoleDontHavePrequest: 'This role don\'t have prequest.',
-                    planeText: 'Plane text',
-                    addPlaneText: 'Add plane text',
-                    selectRole: 'Select role',
-                    addPrerole: 'Add prerole'
+                    availableCourses: 'Available courses',
+                    addedRequirements: 'Added requirements'
                 },
                 openCourse: {
                     openCourses: 'Open courses',

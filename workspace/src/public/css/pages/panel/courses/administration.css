@@ -426,6 +426,7 @@
                 background-color: rgba(0, 0, 0, .5);
                 margin-top: 1rem;
                 margin: 0px auto;
+                width: 95%;
             }
 
             #content .body .forms .enableRequest {
@@ -436,12 +437,12 @@
                     height: calc(2.5rem * 3);
                 }
 
-            #content .body .forms .prerequisite {
+            #content .body .forms .prerequisite {      
                 max-width: 50rem;
             }
 
                 #content .body .forms .prerequisite .open {
-                    height: calc(2.5rem * 3);
+                    height: calc(2.5rem * 10);
                 }
 
             #content .body .forms .openCurse {
@@ -513,15 +514,18 @@
                             position: absolute;
                             top: 50%;
                             right: 0;
-                            transform: translateY(-50%);
                         }
 
                             #content .body .forms .enableRequest form .status span b,
                             #content .body .forms .enableRequest form .adminLock span b {
                                 padding: .3rem;
+                                width: 70%;
                                 border-radius: 25px;
                                 transition: all .5s;
                                 color: black;
+                                position: absolute;
+                                left: 50%;
+                                transform: translateY(-50%) translateX(-50%);
                             }
 
                             #content .body .forms .enableRequest form .status .static b,
@@ -535,25 +539,109 @@
                                 cursor: pointer;
                             }
 
-                            #content .body .forms .enableRequest form .status .active b:hover,
-                            #content .body .forms .enableRequest form .adminLock .active b:hover {
-                                background-color: rgba(0, 255, 0, 1);
-                                padding-left: 1rem;
-                                padding-right: 1rem;
-                            }
+                                #content .body .forms .enableRequest form .status .active b:hover,
+                                #content .body .forms .enableRequest form .adminLock .active b:hover {
+                                    background-color: rgba(0, 255, 0, 1);
+                                    width: 80%;
+                                }
 
-                            #content .body .forms .enableRequest form .status .disabled b
+                            #content .body .forms .enableRequest form .status .disabled b,
                             #content .body .forms .enableRequest form .adminLock .disabled b {
                                 background-color: rgba(255, 0, 0, .8);
                                 cursor: pointer;
                             }
 
-                            #content .body .forms .enableRequest form .status .disabled b:hover
-                            #content .body .forms .enableRequest form .adminLock .disabled b:hover {
-                                background-color: rgba(255, 0, 0, 1);
-                                padding-left: 1rem;
-                                padding-right: 1rem;
+                                #content .body .forms .enableRequest form .status .disabled b:hover,
+                                #content .body .forms .enableRequest form .adminLock .disabled b:hover {
+                                    background-color: rgba(255, 0, 0, 1);
+                                    width: 80%;
+                                }
+
+                    #content .body .forms .prerequisite form .available-courses {
+                        height: calc(2rem * 5);
+                        background-color: rgba(255, 255, 255, .1);
+                    }
+
+                    #content .body .forms .prerequisite form .selected-courses {
+                        height: calc(2rem * 5);
+                    }
+
+                        #content .body .forms .prerequisite form .available-courses h4,
+                        #content .body .forms .prerequisite form .selected-courses h4 {
+                            height: calc(2rem - 2px);
+                            width: 100%;
+                            display: flex;
+                            font-size: 1.5rem;
+                            font-style: italic;
+                            align-items: flex-end;
+                            padding-left: 1rem;
+                            border-bottom: 2px dotted gold;
+                        }
+
+                        #content .body .forms .prerequisite form .available-courses ul,
+                        #content .body .forms .prerequisite form .selected-courses ul {
+                            height: calc(2rem * 4);
+                            overflow: hidden;
+                            overflow-y: auto;
+                        }
+
+                            #content .body .forms .prerequisite form .available-courses ul::-webkit-scrollbar,
+                            #content .body .forms .prerequisite form .selected-courses ul::-webkit-scrollbar {
+                                width: 15px;
+                                background-color: black;
                             }
+
+                            #content .body .forms .prerequisite form .available-courses ul::-webkit-scrollbar-thumb,
+                            #content .body .forms .prerequisite form .selected-courses ul::-webkit-scrollbar-thumb {
+                                background-color: gold;
+                                border-radius: 25px;
+                            }
+
+                            #content .body .forms .prerequisite form .available-courses ul li,
+                            #content .body .forms .prerequisite form .selected-courses ul li {
+                                display: inline-flex;
+                                padding: .3rem .5rem;
+                            }
+
+                                #content .body .forms .prerequisite form .available-courses ul li span,
+                                #content .body .forms .prerequisite form .selected-courses ul li span {
+                                    padding: .2rem .8rem;
+                                    border-radius: 25px;
+                                    font-size: 1.2rem;
+                                    background-color: white;
+                                    text-decoration: none;
+                                    color: black;
+                                    font-style: italic;
+                                }
+
+                                #content .body .forms .prerequisite form .available-courses .enable li span,
+                                #content .body .forms .prerequisite form .selected-courses .enable li span {
+                                    cursor: pointer;
+                                }
+
+                                #content .body .forms .prerequisite form .available-courses .enable li .add:hover,
+                                #content .body .forms .prerequisite form .selected-courses .enable li .add:hover {
+                                    background-color: rgba(0, 255, 0, .8);
+                                }
+
+                                #content .body .forms .prerequisite form .available-courses .enable li .remove:hover,
+                                #content .body .forms .prerequisite form .selected-courses .enable li .remove:hover {
+                                    background-color: rgba(255, 0, 0, .8);
+                                }
+
+                        #content .body .forms .prerequisite form .arr-roles {
+                            height: calc(2rem + 7px);
+                            background-color: rgba(255, 255, 255, .1)
+                        }
+
+                            #content .body .forms .prerequisite form .arr-roles ul {
+                                background-color: rgba(255, 255, 255, .1);
+                                border-top: 1px solid gold;
+                                border-bottom: 1px solid gold;
+                                
+                            }
+
+                    #content .body .forms .openCurse form {}
 
                     #content .body .forms .enableRequest form button,
                     #content .body .forms .prerequisite form button,

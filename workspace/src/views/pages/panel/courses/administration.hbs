@@ -117,14 +117,20 @@
                                     <span class="adminLock">{{adminLock}}</span>
                                     <span class="request">{{request}}</span>
                                     <span class="Prerequisite">
-                                        <ul class="texts">
-                                            {{#each prerequisites.texts}}
-                                            <li>{{this}}</li>
-                                            {{/each}}
-                                        </ul>
                                         <ul class="roles">
                                             {{#each prerequisites.roles}}
-                                            <li>{{this}}</li>
+                                            <li>
+                                                <span>{{idrole}}</span>
+                                                <span>{{name}}</span>
+                                            </li>
+                                            {{/each}}
+                                        </ul>
+                                        <ul class="selected">
+                                            {{#each prerequisites.selected}}
+                                            <li>
+                                                <span>{{idrole}}</span>
+                                                <span>{{name}}</span>
+                                            </li>
                                             {{/each}}
                                         </ul>
                                     </span>
@@ -142,14 +148,6 @@
                         <h3 onclick="openFormsMenu(0)">{{strings.administration.fomrs.roleRequest.allowRoleRequest}}</h3>
                         <form action="/panel/courses/administration/roleRequest" method="POST" class="close">
                             <input type="text" name="roleSelector" class="input-roleSelector" style="display: none;">
-                            <section class="status">
-                                <p>{{strings.administration.fomrs.roleRequest.status}}</p>
-                                <span class="opt active" style="display: block">
-                                    <b>{{strings.administration.fomrs.roleRequest.actived}}</b>
-                                    <b style="display: none;">{{strings.administration.fomrs.roleRequest.disabled}}</b>
-                                </span>
-                                <input type="text" name="status" class="input-status" style="display: none;">
-                            </section>
                             <section class="adminLock">
                                 <p>{{strings.administration.fomrs.roleRequest.adminLock}}</p>
                                 <span class="opt active" style="display: block">
@@ -158,24 +156,50 @@
                                 </span>
                                 <input type="text" name="adminLock" class="input-adminLock" style="display: none;">
                             </section>
+                            <section class="status">
+                                <p>{{strings.administration.fomrs.roleRequest.status}}</p>
+                                <span class="opt active" style="display: block">
+                                    <b>{{strings.administration.fomrs.roleRequest.actived}}</b>
+                                    <b style="display: none;">{{strings.administration.fomrs.roleRequest.disabled}}</b>
+                                </span>
+                                <input type="text" name="status" class="input-status" style="display: none;">
+                            </section>
                             <button type="submit">{{strings.administration.fomrs.roleRequest.update}}</button>
                         </form>
                     </section>
                     <section class="prerequisite" id="forms-prerequisites">
                         <h3 onclick="openFormsMenu(1)">{{strings.administration.fomrs.prerequisite.prerequisite}}</h3>
                         <form action="/panel/courses/administration/prerequisite" method="POST" class="close">
-
+                            <input type="text" name="roleSelector" class="input-roleSelector" style="display: none;">
+                            <section class="available-courses" id="forms-prerequisites-available">
+                                <h4>{{strings.administration.fomrs.prerequisite.availableCourses}}</h4>
+                                <ul></ul>
+                            </section>
+                            <section class="selected-courses" id="forms-prerequisites-selected">
+                                <h4>{{strings.administration.fomrs.prerequisite.addedRequirements}}</h4>
+                                <ul></ul>
+                            </section>
+                            <section class="arr-roles" id="forms-arr-roles">
+                                <ul></ul>
+                                <input type="text" name="arrRoles" style="display: none;">
+                            </section>
                             <button type="submit">{{strings.administration.fomrs.roleRequest.update}}</button>
                         </form>
                     </section>
                     <section class="openCurse" id="form-openCurse">
                         <h3 onclick="openFormsMenu(2)">{{strings.administration.fomrs.openCourse.openCourses}}</h3>
                         <form action="/panel/courses/administration/openCourse" method="POST" class="close">
+                            <input type="text" name="roleSelector" class="input-roleSelector" style="display: none;">
+                            <section class="">
 
+                            </section>
                             <button type="submit">{{strings.administration.fomrs.roleRequest.update}}</button>
                         </form>
                     </section>
                 </section>
+                <script>
+                    const adminOpt = {{pageConf.adminOpt}};
+                </script>
             </section>
         </section>
 </article>

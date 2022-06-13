@@ -12,7 +12,7 @@ module.exports = {
     getFroms: async (req) => {
         const arr = [];
         await roleForFroms(req, arr);
-        //console.log(arr);
+        //arr.forEach(element => { console.log(element); });
         if (arr.length > 0) return arr;
         return undefined;
     }
@@ -35,7 +35,6 @@ async function requestCourseTables(req, opt) {
                     const rolesRequests_db = await pool.query('SELECT * FROM legion_latinoamericana_website.`roles-users-requests` WHERE (idrole = ?);', [instructor.idrole]);
                     if (rolesRequests_db.length > 0) rolesRequests_db.forEach(element => { rolesRequests.push(element); });
                 };
-                
             }
         }
         var count;
@@ -61,19 +60,14 @@ async function requestCourseTables(req, opt) {
             const instructors = await pool.query('SELECT * FROM legion_latinoamericana_website.instructors WHERE (iduser = ?);', [req.user.iduser]);
             if (instructors.length > 0) {
                 for (let instructor of instructors) {
-                    //console.log(instructor);
                     roles_db = await pool.query('SELECT idrole, name FROM legion_latinoamericana_website.roles WHERE (idrole = ?);', [instructor.idrole]);
                     if (roles_db.length > 0) roles_db.forEach(element => { roles.push(element); });
-                    //console.log(instructor);
                     rolesRequests_db = await pool.query('SELECT * FROM legion_latinoamericana_website.`roles-users-requests` WHERE (idrole = ?);', [instructor.idrole]);
-                    //console.log(rolesRequests_db);
                     if (rolesRequests_db.length > 0) rolesRequests_db.forEach(element => { rolesRequests.push(element); });
                 };
                 
             }
         }
-        //console.log('roles: ', roles);
-        //console.log('rolesRequests: ', rolesRequests);
         var date, user, role;
         rolesRequests.forEach((element) => {
             for (let subElement of roles) {
@@ -93,17 +87,15 @@ async function requestCourseTables(req, opt) {
 
 async function roleForFroms(req, arr) {
     const user = req.user;
-    let roles = [], rolesrequests = [];
+    let roles = [];
+    const allRoles = await pool.query('SELECT * FROM legion_latinoamericana_website.roles;');
+    const prerequisites_db = await pool.query('SELECT * FROM legion_latinoamericana_website.rolesrequests;');
     if (user.permissions == 5 || user.permissions == 9) {
-        roles = await pool.query('SELECT * FROM legion_latinoamericana_website.roles;');
-        rolesrequests = await pool.query('SELECT * FROM legion_latinoamericana_website.rolesrequests;');
+        roles = allRoles;
     } else {
         const instructors = await pool.query('SELECT * FROM legion_latinoamericana_website.instructors WHERE (iduser = ?);', [req.user.iduser]);
         if (instructors.length > 0) for (let instructor of instructors) {
-            roles_db = await pool.query('SELECT idrole, name FROM legion_latinoamericana_website.roles WHERE (idrole = ?);', [instructor.idrole]);
-            if (roles_db.length > 0) roles_db.forEach(element => { roles.push(element); });
-            rolesrequests_db = await pool.query('SELECT * FROM legion_latinoamericana_website.rolesrequests WHERE (idrole = ?);', [instructor.idrole]);
-            if (rolesrequests_db.length > 0) rolesRequests_db.forEach(element => { rolesrequests.push(element); });
+            if (allRoles.length > 0) allRoles.forEach(element => { if (element.idrole == instructor.idrole) roles.push(element); });
         };
     }
     if (roles.length > 0) roles.forEach(element => {
@@ -113,12 +105,37 @@ async function roleForFroms(req, arr) {
         if (element.request == 1) request = true;
         let adminLock = false; 
         if (element.adminlock == 1) adminLock = true;
-        const prerequisites = {
-            texts: [],
-            roles: []
-        };
-
+        const prerequisites = { roles: [], selected: [] };
+        addPrerequisitesRolesForForms(id, prerequisites_db, allRoles, prerequisites);
+        for (let index = 0; index < 100; index++) {
+            prerequisites.roles.push({idrole: (0 - index), name: 'test ' + (0 - index)});
+        }
         arr.push({id, name, adminLock, request, prerequisites});
     });
-    console.log(arr);
+}
+
+function addPrerequisitesRolesForForms(id, list, roles, arrs) {
+    list.forEach(element => { if (element.idrole == id) {
+        let name = '';
+        for (let role of roles) if (role.idrole == element.rolerequest) {
+            name = role.name;
+            break;
+        };
+        arrs.selected.push({idrole: element.rolerequest, name});
+    }});
+    const tempArray = [];
+    roles.forEach(element => {
+        const name = element.name;
+        const idrole = element.idrole;
+        if (idrole != id) tempArray.push({idrole, name});
+    });
+    if (arrs.selected.length > 0) {
+        tempArray.forEach(element => {
+            let skip = false;
+            arrs.selected.forEach(subElement => {
+                if (element.idrole == subElement.idrole) skip = true;
+            });
+            if (!skip) arrs.roles.push(element);
+        });
+    } else arrs.roles = tempArray;
 }

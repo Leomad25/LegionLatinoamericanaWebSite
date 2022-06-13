@@ -37,13 +37,16 @@ module.exports = {
     },
     administration: {
         get:  async (req, res) => {
+            let adminOpt = false;
+            if (req.user.permissions == 5 || req.user.permissions == 9) adminOpt = true;
             const userExtra = await require('../../lib/userExtra')(req);
             res.render('pages/panel/courses/administration', {
                 stylesheet: '/css/pages/panel/courses/administration.css',
                 script: '/js/pages/panel/courses/administration.js',
                 userExtra, pageConf: {
                     requestCourse: await require('../../lib/helpers/courses/administration').getRequestCourseTables(req),
-                    forms: await require('../../lib/helpers/courses/administration').getFroms(req)
+                    forms: await require('../../lib/helpers/courses/administration').getFroms(req),
+                    adminOpt
                 },
                 panelMessage: require('../../lib/helpers').getPanelMessage(req),
                 strings: require('../../lib/langSelector').panelCourses(req, 2)
@@ -51,6 +54,7 @@ module.exports = {
         },
         post: async (req, res) => {
             console.log(req.params);
+            console.log('params: ', req.body);
         }
     }
 }
